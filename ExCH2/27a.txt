@@ -1,0 +1,18 @@
+// graph
+digraph {
+	//rankdir="LR";
+	dummy [ label="dummy", style = invis ];
+	"NCi" ;
+	"" ;
+	"p[i]=j,y[j]=i" ;
+	"CRITi" ;
+	
+	dummy -> "NCi";
+	"NCi" -> "" [ label="p[i]:=1, y[1]:=i" ];
+	"" -> "p[i]=j,y[j]=i" [ label="j <= n-1" ];
+	"p[i]=j,y[j]=i" -> "" [ label="" ];
+	
+	"" -> "CRITi" [ label="(y[j] != i) or (for all k, 0<=k<=n, k !=i : p[k]<j)" ];
+	"CRITi" -> "p[i]=0" [ label="" ];
+	"p[i]=0" -> "NCi" [ label="" ];
+}

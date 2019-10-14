@@ -213,29 +213,111 @@ of n processes.\\
 ad infinitum.\\
 
 \subsection*{Answer}
+\begin{itemize}
+	\item \begin{centering}
+		\includegraphics*[scale=0.5]{27a.png}
+	\end{centering}
+	\item Each processes has 5 states.\\
+	Combining 2 processes gives $5^2 = 25$ (each state can be combined with 5 other states) possible states, combining 3 processes gives $5^3$ possible states, ... $\Rightarrow$ combining n processes gives $5^n$ possible states.
+	\item /
+	\item /
+	\item Either a process will enter the critical section because it doesn't have the lowest priority ($y[j] \neq i$) OR because all other processes exited the critical section. Assuming that every process will leave the critical section after a reasonable amount of time, a process will never have to wait ad infinitum to enter the critical section.
+\end{itemize}
 
 \newpage
 \section*{Ex. 2.8}
 \subsection*{Question}
-
+In channel systems, values can be transferred from one process to another process.\\
+As this is somewhat limited, we consider in this exercise an extension that allows for the transfer
+of expressions.\\
+That is to say, the send and receive statements c!v and c?x (where x and v are of
+the same type) are generalized into c!expr and c?x, where for simplicity it is assumed that expr
+is a correctly typed expression (of the same type as x). Legal expressions are, e.g., x $\wedge$ ($\neg$y $\lor$ z)
+for Boolean variables x, y, and z, and channel c with dom(c) = $\{$ 0, 1 $\}$. For integers x, y, and an
+integer-channel c, $|$2x + (x − y)div17$|$ is a legal expression.\\
+\\
+Extend the transition system semantics of channel systems such that expressions are
+allowed in send statements.
 \subsection*{Answer}
+\begin{itemize}
+	\item S needs to be extended with Eval(expr)
+	\item The relation '$\rightarrow$' needs to be extended with Eval(expr) where it states `a value along channel c'
+	\item L needs to be extended with Cond(expr)
+\end{itemize}
 
 \newpage
 \section*{Ex. 2.9}
 \subsection*{Question}
-
+Consider the following mutual exclusion algorithm that uses the shared variables
+y1 and y2 (initially both 0).\\
+\begin{centering}
+	\includegraphics*[scale=1]{ex29.png}
+\end{centering}
+\\
+(a) Give the program graph representations of both processes. (A pictorial representation suffices.)\\
+(b) Give the reachable part of the transition system of P1 $\|$ P2 where y1 $\leq$ 2 and y2 $\leq$ 2.\\
+(c) Describe an execution that shows that the entire transition system is infinite.\\
+(d) Check whether the algorithm indeed ensures mutual exclusion.\\
+(e) Check whether the algorithm never reaches a state in which both processes are mutually
+waiting for each other.\\
+(f) Is it possible that a process that wants to enter the critical section has to wait ad infinitum?\\
 \subsection*{Answer}
+\begin{itemize}
+	\item \begin{centering}
+		\includegraphics*[scale=1]{29a.jpg}
+	\end{centering}
+	\item \begin{centering}
+		\includegraphics*[scale=1]{29b.jpg}
+	\end{centering}
+	\item $P_1 -> P_2 -> P_1 -> P_2 -> ...$ basically just eternally switching between increasing y1 and y2 before the other can gain access to the critical section
+	\item A process can only enter the critical section if the other process just left the critical section or if the counter of process i is smaller then that of process j. Since a process can only make its own counter greater than that of the other process, it will only get access if the other process left the critical section. If process i increments it counter before process j, process j will have access to the CS before process i.         
+	\item Due to the way the counters increment it cannot happen that both processes are mutually waiting for each other.
+	\item No: either the other process has their counter set to 0 or it wants access to the CS next.
+\end{itemize}
 
 \newpage
 \section*{Ex. 2.10}
 \subsection*{Question}
+Consider the following mutual exclusion algorithm that was proposed 1966 [221]
+as a simplification of Dijkstra’s mutual exclusion algorithm in case there are just two processes:\\
+\begin{centering}
+	\includegraphics*[scale=0.8]{ex210.png}
+\end{centering}\\
+Here C0, C1, and C2 are program labels, and the word “computer” should be interpreted as process.\\
+\\
+(a) Give the program graph representations for a single process. (A pictorial representation
+suffices.)\\
+(b) Give the reachable part of the transition system of P1 $\|$ P2.\\
+(c) Check whether the algorithm indeed ensures mutual exclusion.
 
 \subsection*{Answer}
+\begin{itemize}
+	\item \begin{centering}
+		\includegraphics*[scale=0.6]{210a.jpg}
+	\end{centering}
+	\item \begin{centering}
+		\includegraphics*[scale=0.6]{210b.jpg}
+	\end{centering}
+\end{itemize}
 
 \newpage
 \section*{Ex. 2.11}
 \subsection*{Question}
+Consider the following two sequential hardware circuits C1 and C2:\\
+\begin{centering}
+	\includegraphics*[scale=0.8]{ex211.png}
+\end{centering}\\
+\\
+(a) Give the transition system representation TS(C1) of the circuit C1.\\
+(b) Let TS(C2) be the transition system of the circuit C2. Outline the transition system TS(C1) $\otimes$
+TS(C2).
 
 \subsection*{Answer}
+\begin{itemize}
+	\item \begin{centering}
+		\includegraphics*[scale=0.45]{211a.jpg}
+	\end{centering}
+	\item C1 will get an extra line from r1 to an OR gate (other input is result of ´r1 AND r2'). Result of the OR gate goes to y and is negated by a NOT gate before going to an OR gate that leads to r1 (along with the original input for r1).
+\end{itemize}
 
 \end{document}

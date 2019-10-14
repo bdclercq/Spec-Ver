@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.20)  14 OCT 2019 17:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.20)  14 OCT 2019 21:44
 entering extended mode
 **"./Exercises TS.tex"
 ("Exercises TS.tex"
@@ -576,33 +576,138 @@ Underfull \hbox (badness 10000) in paragraph at lines 196--214
 
  []
 
-[14 <./ex27.png>] [15] [16] [17]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 241.
- [18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 241.
+<27a.png, id=147, 522.95375pt x 486.81876pt>
+File: 27a.png Graphic file (type png)
+<use 27a.png>
+Package pdftex.def Info: 27a.png  used on input line 218.
+(pdftex.def)             Requested size: 261.47623pt x 243.40878pt.
+[14 <./ex27.png>] [15 <./27a.png>]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no à in font cmr12!
+Missing character: There is no í in font cmr12!
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--241
+
+ []
+
+[16]
+<ex29.png, id=171, 432.86719pt x 120.45pt>
+File: ex29.png Graphic file (type png)
+<use ex29.png>
+Package pdftex.def Info: ex29.png  used on input line 254.
+(pdftex.def)             Requested size: 432.86612pt x 120.44969pt.
+
+Overfull \hbox (42.86612pt too wide) in paragraph at lines 251--264
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 251--264
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 251--264
+
+ []
+
+<29a.jpg, id=173, 238.2501pt x 308.352pt>
+File: 29a.jpg Graphic file (type jpg)
+<use 29a.jpg>
+Package pdftex.def Info: 29a.jpg  used on input line 267.
+(pdftex.def)             Requested size: 238.24951pt x 308.35124pt.
+[17 <./ex29.png>]
+<29b.jpg, id=183, 238.2501pt x 308.352pt>
+File: 29b.jpg Graphic file (type jpg)
+<use 29b.jpg>
+Package pdftex.def Info: 29b.jpg  used on input line 270.
+(pdftex.def)             Requested size: 238.24951pt x 308.35124pt.
+ [18 <./29a.jpg>] [19 <./29b.jpg>]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+<ex210.png, id=197, 386.19281pt x 171.64125pt>
+File: ex210.png Graphic file (type png)
+<use ex210.png>
+Package pdftex.def Info: ex210.png  used on input line 284.
+(pdftex.def)             Requested size: 308.95465pt x 137.31316pt.
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--292
+
+ []
+
+<210a.jpg, id=199, 614.295pt x 794.97pt>
+File: 210a.jpg Graphic file (type jpg)
+<use 210a.jpg>
+Package pdftex.def Info: 210a.jpg  used on input line 296.
+(pdftex.def)             Requested size: 368.57983pt x 476.98569pt.
+
+Overfull \hbox (7.95453pt too wide) in paragraph at lines 296--298
+[][] 
+ []
+
+[20 <./ex210.png>]
+<210b.jpg, id=209, 614.295pt x 794.97pt>
+File: 210b.jpg Graphic file (type jpg)
+<use 210b.jpg>
+Package pdftex.def Info: 210b.jpg  used on input line 299.
+(pdftex.def)             Requested size: 368.57983pt x 476.98569pt.
+
+Overfull \hbox (7.95453pt too wide) in paragraph at lines 299--301
+[][] 
+ []
+
+[21 <./210a.jpg>] [22 <./210b.jpg>]
+<ex211.png, id=222, 426.84468pt x 185.94469pt>
+File: ex211.png Graphic file (type png)
+<use ex211.png>
+Package pdftex.def Info: ex211.png  used on input line 308.
+(pdftex.def)             Requested size: 341.47621pt x 148.75594pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 306--314
+
+ []
+
+<211a.jpg, id=224, 614.295pt x 794.97pt>
+File: 211a.jpg Graphic file (type jpg)
+<use 211a.jpg>
+Package pdftex.def Info: 211a.jpg  used on input line 318.
+(pdftex.def)             Requested size: 276.43019pt x 357.7332pt.
+[23 <./ex211.png>]
+Missing character: There is no ¬ in font cmr12!
+Missing character: There is no ¥ in font cmr12!
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 323.
+ [24 <./211a.jpg>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 323.
  ("Exercises TS.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 241.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 241.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 323.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 323.
 Package rerunfilecheck Info: File `"Exercises TS".out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 241.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 323.
  ) 
 Here is how much of TeX's memory you used:
- 7579 strings out of 493305
- 112307 string characters out of 3146678
+ 7631 strings out of 493305
+ 112879 string characters out of 3146678
  203579 words of memory out of 3000000
- 10985 multiletter control sequences out of 15000+200000
+ 11021 multiletter control sequences out of 15000+200000
  9933 words of font info for 36 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,7n,38p,307b,388s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,7n,38p,474b,388s stack positions out of 5000i,500n,10000p,200000b,50000s
 <D:/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/MiKTeX/fonts/type1/p
 ublic/amsfonts/cm/cmmi12.pfb><D:/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pf
 b><D:/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/MiKTeX/fonts/type1/pu
 blic/amsfonts/cm/cmr17.pfb><D:/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><
 D:/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on "Exercises TS.pdf" (18 pages, 378883 bytes).
+Output written on "Exercises TS.pdf" (24 pages, 3819321 bytes).
 PDF statistics:
- 220 PDF objects out of 1000 (max. 8388607)
- 53 named destinations out of 1000 (max. 500000)
- 177 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 277 PDF objects out of 1000 (max. 8388607)
+ 59 named destinations out of 1000 (max. 500000)
+ 276 words of extra memory for PDF output out of 10000 (max. 10000000)
 
