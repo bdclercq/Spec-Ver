@@ -1,0 +1,26 @@
+// graph
+digraph {
+	node [shape=record];
+	dummy [ label="dummy", style = invis ];
+	struct1 [label="<f0> s=1|<f1> y0=0|<f2> y1=0"];
+    struct2 [label="<f0> s=0|<f1> y0=1|<f2> y1=0"];
+    struct3 [label="CRIT|<f0> s=0|<f1> y0=1|<f2> y1=0"];
+    struct4 [label="<f0> s=1|<f1> y0=1|<f2> y1=1"];
+    struct5 [label="<f0> s=0|<f1> y0=0|<f2> y1=0"];
+    struct6 [label="<f0> s=1|<f1> y0=0|<f2> y1=1"];
+	
+	dummy -> struct1:f2;
+    struct1:f1 -> struct2:f1;
+    struct1:f1 -> struct6:f1;
+	struct2:f1 -> struct3:f1;
+	struct2:f1 -> struct4:f1;
+	struct3:f1 -> struct4:f1;
+	struct3:f1 -> struct5:f1;
+	struct4:f1 -> struct6:f1;
+	
+	struct6:f1 -> "... symmetric to {s=0,y0=1,y1=0} ...";
+	struct5:f1 -> "... same as initial but with s=0 ...";
+	
+	struct2:f1 -> struct2:f1 [ label="r0" ];
+	struct4:f1 -> struct4:f1 [ label="r0, r1" ];
+}

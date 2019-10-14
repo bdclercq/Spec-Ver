@@ -1,0 +1,13 @@
+// graph
+digraph {
+	dummy [ label="dummy", style = invis ];
+	"NCi"
+	"yi=1,s=i"
+	"CRITi"
+	
+	dummy -> "NCi" 
+	"NCi" -> "yi=1,s=i" [ label="" ];
+	"yi=1,s=i" -> "CRITi" [ label="y_(i-1) = 0 OR s=i" ];
+	"yi=1,s=i" -> "yi=1,s=i";
+	"CRITi" -> "NCi" [ label="yi:=0" ];
+}

@@ -1,0 +1,117 @@
+// graph
+digraph {
+	rankdir="LR";
+	L1L2L3
+	L1L2I3
+	L1L2S3
+	L1I2L3
+	L1S2L3
+	L1I2I3
+	L1I2S3
+	L1S2I3
+	L1S2S3
+	
+	I1L2L3
+	S1L2L3
+	I1L2I3
+	S1L2S3
+	S1L2I3
+	I1L2S3
+	
+	I1I2L3
+	I1S2L3
+	S1I2L3
+	S1S2L3
+	
+	S1S2S3
+	
+	L1L2L3 -> L1L2I3 // done
+	L1L2L3 -> L1I2L3 // done
+	L1L2L3 -> I1L2L3 // done
+	
+	L1L2I3 -> L1L2S3 // done
+	L1L2I3 -> L1I2I3 // done
+	L1L2I3 -> I1L2I3 // done
+	
+	L1I2L3 -> L1S2L3 // done
+	L1I2L3 -> L1I2I3 // done
+	L1I2L3 -> I1I2L3 // done 
+	
+	I1L2L3 -> S1L2L3 // done
+	I1L2L3 -> I1I2L3 // done
+	I1L2L3 -> I1L2I3 // done
+	
+	L1L2S3 -> L1I2S3 // done
+	L1L2S3 -> I1L2S3 // done
+	
+	L1I2I3 -> L1S2I3 // done
+	L1I2I3 -> L1I2S3 // done
+	L1I2I3 -> I1I2I3 // done
+	
+	I1L2I3 -> I1L2S3 // done
+	I1L2I3 -> I1I2I3 // done
+	I1L2I3 -> S1L2I3 // done
+	
+	L1S2L3 -> L1S2I3 // done
+	L1S2L3 -> I1S2L3 // done
+	
+	L1I2I3 -> L1I2S3 // done
+	L1I2I3 -> L1S2I3 // done
+	L1I2I3 -> I1I2I3 // done
+	
+	I1I2L3 -> S1I2L3 // done
+	I1I2L3 -> I1S2L3 // done
+	I1I2L3 -> I1I2I3 // done
+	
+	S1L2L3 -> S1I2L3 // done
+	S1L2L3 -> S1L2I3 // done
+	
+	I1I2L3 -> S1I2L3 // done
+	I1I2L3 -> I1S2L3 // done
+	I1I2L3 -> I1I2I3 // done
+	
+	L1I2S3 -> I1I2S3 // done
+	L1I2S3 -> L1S2S3 // done
+	
+	I1L2S3 -> S1L2S3 // done
+	I1L2S3 -> I1I2S3 // done
+	
+	L1S2I3 -> I1S2I3 // done
+	L1S2I3 -> L1S2S3 // done
+	
+	I1I2I3 -> I1I2S3 // done
+	I1I2I3 -> I1S2I3 // done
+	I1I2I3 -> S1I2I3 // done
+	
+	S1L2I3 -> S1I2I3 // done
+	S1L2I3 -> S1L2S3 // done
+	
+	I1S2L3 -> S1S2L3 // done
+	I1S2L3 -> I1S2I3 // done
+	
+	S1I2L3 -> S1S2L3 // done
+	S1I2L3 -> S1I2I3 // done
+	
+	I1I2S3 -> S1I2S3 // done
+	I1I2S3 -> I1S2S3 // done
+	
+	L1S2S3 -> I1S2S3 // done
+	
+	S1L2S3 -> S1I2S3 // done
+	
+	I1S2I3 -> S1S2I3 // done
+	I1S2I3 -> I1S2S3 // done
+	
+	S1I2I3 -> S1S2I3 // done
+	S1I2I3 -> S1I2S3 // done
+	
+	S1S2L3 -> S1S2I3 // done
+	
+	S1S2L3 -> S1S2I3 // done
+	
+	S1I2S3 -> S1S2S3
+	
+	I1S2S3 -> S1S2S3
+	
+	S1S2I3 -> S1S2S3
+}

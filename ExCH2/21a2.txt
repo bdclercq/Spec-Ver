@@ -1,0 +1,14 @@
+// graph
+digraph {
+	rankdir="LR";
+	dummy [ label="dummy", style = invis ];
+	dummy2 [ label="dummy2", style = invis ];
+	01 [ xlabel="{r2}" ];
+	11 [ xlabel="{y2}" ];
+	dummy -> 01 
+	dummy2 -> 11 
+	01 -> 01
+	01 -> 11
+	11 -> 11
+	11 -> 01
+}

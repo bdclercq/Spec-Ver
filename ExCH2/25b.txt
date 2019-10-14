@@ -1,0 +1,19 @@
+// graph
+digraph {
+	dummy [ label="dummy", style = invis ];
+	"yi=0,s=1"
+	"yi=1,s=1"
+	
+	dummy -> "yi=0,s=1" 
+	"yi=0,s=1" -> "yi=1,s=1"
+	
+	"yi=1,s=1" -> "y_i-1=0"
+	"yi=1,s=1" -> "y_i-1!=0" -> "..."
+	"yi=1,s=1" -> "s!=i"
+	"yi=1,s=1" -> "s=i" -> "...."
+	"yi=1,s=1" -> "yi=1,s=1"
+	
+	"y_i-1=0" -> "yi=0"
+	
+	"s!=i" -> "yi=0"
+}

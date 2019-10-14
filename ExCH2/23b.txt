@@ -1,0 +1,35 @@
+// graph
+digraph {
+	dummy [ label="dummy", style = invis ];
+	"r1r2r3x1" 
+	"r1r2r3x2"
+	"r1r2r3x3"
+
+	"ry1r2r3x1"
+	"g1r2r3x1"
+	"y1r2r3x1"
+	
+	"r1ry2r3x2"
+	"r1g2r3x2"
+	"r1y2r3x2"
+	
+	"r1r2ry3x3"
+	"r1r2g3x3"
+	"r1r2y3x3"
+	
+	dummy -> "r1r2r3x1" 
+	"r1r2r3x1" -> "ry1r2r3x1"
+	"ry1r2r3x1" -> "g1r2r3x1"
+	"g1r2r3x1" -> "y1r2r3x1"
+	"y1r2r3x1" -> "r1r2r3x2"
+	
+	"r1r2r3x2" -> "r1ry2r3x2"
+	"r1ry2r3x2" -> "r1g2r3x2"
+	"r1g2r3x2" -> "r1y2r3x2"
+	"r1y2r3x2" -> "r1r2r3x3"
+	
+	"r1r2r3x3" -> "r1r2ry3x3"
+	"r1r2ry3x3" -> "r1r2g3x3"
+	"r1r2g3x3" -> "r1r2y3x3"
+	"r1r2y3x3" -> "r1r2r3x1" 
+}

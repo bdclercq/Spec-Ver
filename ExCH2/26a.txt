@@ -1,0 +1,15 @@
+// graph
+digraph {
+	dummy [ label="dummy", style = invis ];
+	"S0" [ xlabel="{empty stack}" ];
+	"S1" [ xlabel="{stack with content}" ];
+	
+	dummy -> "S0";
+	"S0" -> "S0" [ label="top" ];
+	"S0" -> "S1" [ label="push" ];
+	"S1" -> "S0" [ label="pop" ];
+	"S1" -> "S1" [ label="push" ];
+	"S1" -> "S1" [ label="top" ];
+	"S1" -> "S1" [ label="pop" ];
+    
+}

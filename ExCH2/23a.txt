@@ -1,0 +1,14 @@
+// graph
+digraph {
+	rankdir="LR";
+	dummy [ label="dummy", style = invis ];
+	"red" 
+	"red/yellow" 
+	"green" 
+	"yellow" 
+	dummy -> "red" 
+	"red" -> "red/yellow" [ label="start engine" ]
+	"red/yellow" -> "green" [ label="go" ]
+	"green" -> "yellow" [ label="slow down" ]
+	"yellow" -> "red" [ label="stop" ]
+}

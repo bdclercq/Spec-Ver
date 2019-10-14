@@ -1,0 +1,12 @@
+// graph
+digraph {
+	rankdir="LR";
+	dummy [ label="dummy", style = invis ];
+	00 [ xlabel="{y1}"];
+	10 [ xlabel="{x1,y0,y1}"];
+	dummy -> 00 
+	00 -> 00
+	00 -> 10
+	10 -> 10
+	10 -> 00
+}
