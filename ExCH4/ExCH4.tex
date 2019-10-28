@@ -16,6 +16,7 @@
 \usepackage{latexsym}
 \usepackage{wasysym}
 
+\newcommand\tab[1][1cm]{\hspace*{#1}}
 
 \makeindex
 
@@ -36,15 +37,21 @@
 \subsection*{Question}
 
 \subsection*{Answer}
+\begin{itemize}
+	\item BadPref($P_1$) = $((\neg a)^*ab^*(a)^+c^?)^\omega$
+	\item BadPref($P_2$) = $((\neg a)^*a(\neg b)^*a)^\omega$
+	\item Not possible: counting is not possible.
+	\item BadPref($P_4$) = $((a\wedge \neg b)(b\wedge \neg a))^*(b\vee a)$
+\end{itemize}
 
 \newpage
 \section*{Ex. 4.2}
 \subsection*{Question}
 
 \subsection*{Answer}
-\begin{itemize}
-	\item 
-\end{itemize}
+\begin{centering}
+	\includegraphics*[scale=0.8]{ex2.pdf}
+\end{centering}
 
 
 \newpage
@@ -61,9 +68,9 @@
 \subsection*{Question}
 
 \subsection*{Answer}
-\begin{itemize}
-	\item 
-\end{itemize}
+$L = (\tab((A(A\vee B\vee C)^*A)^*\vee (C(A\vee B\vee C\vee)^*C)^*)^*\\
+			\tab\tab((B\vee C)^*((A((BC)^*\vee (BA^*)))))\\
+		\tab)^\omega$
 
 \newpage
 \section*{Ex. 4.13}
