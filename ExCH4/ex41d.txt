@@ -1,0 +1,13 @@
+// graph
+digraph {
+	rankdir="LR";
+	dummy [ label="dummy", style = invis ];
+	"q0" ;
+	"q1" ;
+	"q2" [ peripheries=2 ];
+	
+	dummy -> "q0";
+	"q0" -> "q1" [ label="a and not b" ];
+	"q1" -> "q0" [ label="b and not a" ];
+	"q1" -> "q2" [ label="b or a" ];
+}

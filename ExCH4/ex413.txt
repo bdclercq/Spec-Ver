@@ -1,0 +1,44 @@
+// graph
+digraph {
+	//rankdir="LR";
+	dummy [ label="dummy", style = invis ];
+	dummy2 [ label="dummy", style = invis ];
+	"p0" ;
+	"p1" ;
+	"p2" ;
+	"p3" ;
+	"p4" ;
+	
+	"q_new" ;
+	"q0" ;
+	"q1" ;
+	"q4" ;
+	"q3" ;
+	"q2" [ peripheries=2 ];
+	
+	dummy -> "p0";
+	"p0" -> "p1" [ label="A" ];
+	"p1" -> "p2" [ label="C" ];
+	"p1" -> "p2" [ label="B" ];
+	"p3" -> "p3" [ label="C" ];
+	"p3" -> "p4" [ label="A" ];
+	"p4" -> "p3" [ label="A" ];
+	"p4" -> "p0" [ label="B" ];
+	"p2" -> "p2" [ label="A,B" ];
+	"p2" -> "p0" [ label="C" ];
+	dummy2 -> "q_new";
+	"p2" -> "q_new" [ label="C" ];
+	"q_new" -> "q0" [ label="C" ];
+	"q_new" -> "q1" [ label="C" ];
+	"q0" -> "q1" [ label="C" ];
+	"q1" -> "q0" [ label="C" ];
+	"q1" -> "q2" [ label="B" ];
+	"q1" -> "q3" [ label="A" ];
+	"q1" -> "q_new" [ label="A,B,C" ];
+	"q2" -> "q1" [ label="A" ];
+	"q2" -> "q_new" [ label="A" ];
+	"q3" -> "q4" [ label="B" ];
+	"q3" -> "q_new" [ label="B" ];
+	"q4" -> "q1" [ label="B" ];
+	"q4" -> "q_new" [ label="B" ];
+}
