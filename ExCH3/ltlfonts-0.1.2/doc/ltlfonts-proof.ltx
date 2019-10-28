@@ -1,0 +1,233 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,xspace,ltlfonts}
+
+%% Semantically named commands for LTL operators:
+\renewcommand \Box      {\LTLsquare}
+\newcommand \Diam       {\LTLdiamond}
+\newcommand \Next       {\LTLcircle}
+\newcommand \SoFar      {\LTLsquareminus}
+\newcommand \Once       {\LTLdiamondminus}
+\newcommand \Prev       {\LTLcircleminus}
+\newcommand \Before     {\LTLcircletilde}
+%% Strict versions:
+\newcommand \BoxHat     {\LTLsquarehat}
+\newcommand \DiamHat    {\LTLdiamondhat}
+\newcommand \SoFarHat   {\LTLsquareminushat}
+\newcommand \OnceHat    {\LTLdiamondminushat}
+%% Letter-like LTL operators:
+\newcommand \Until      {\mathbin{\mathcal{U}\kern-.1em}}
+\newcommand \WaitFor    {\mathbin{\mathcal{W}}}
+\newcommand \Since      {\mathbin{\mathcal{S}\kern-.08em}}
+\newcommand \BackTo     {\mathbin{\mathcal{B}}}
+%% Strict versions:
+\newcommand \UntilHat   {\mathbin{\LTLhat{\mathcal{U}}\kern-.1em}}
+\newcommand \WaitForHat {\mathbin{\LTLhat{\mathcal{W}}}}
+\newcommand \SinceHat   {\mathbin{\LTLhat{\mathcal{S}}\kern-.08em}}
+\newcommand \BackToHat  {\mathbin{\LTLhat{\mathcal{B}}}}
+%% FOL operators:
+\newcommand \Not        {\mathopen{\neg}}
+\renewcommand \And      {\mathbin{\wedge}}
+\newcommand \Or         {\mathbin{\vee}}
+\newcommand \Impl       {\mathbin{\rightarrow}}
+\newcommand \Iff        {\mathbin{\leftrightarrow}}
+\newcommand \A[1]       {{\forall #1 \,}}
+\newcommand \E[1]       {{\exists #1 \,}}
+\newcommand \Eu[1]      {{\exists! #1 \,}}
+\newcommand \nE[1]      {{\nexists #1 \,}}
+%% LTL syntactic sugar:
+\newcommand \Entail     {\mathrel{\Rightarrow}}
+\newcommand \EntIff     {\mathrel{\Leftrightarrow}}
+%% Semantics and proof theory symbols:
+\renewcommand \models   {\mathrel{\raisebox{-.1em}{$\vDash$}}}
+\newcommand \nmodels    {\mathrel{\raisebox{-.1em}{$\nvDash$}}}
+\newcommand \derives    {\mathrel{\raisebox{-.1em}{$\vdash$}}}
+\newcommand \nderives   {\mathrel{\raisebox{-.1em}{$\nvdash$}}}
+\newcommand \smodels    {\models\kern-.5em\models}
+%% Other math-mode abbreviations:
+\renewcommand \phi      {\varphi}
+\newcommand \Jay        {\mathcal{J}}
+\newcommand \Cee        {\mathcal{C}}
+\newcommand \Ell        {\mathcal{L}}
+%% Text-mode commands:
+\newcommand \ltl        {\textsc{ltl}\xspace}
+
+\begin{document}
+
+\centerline{\sffamily\Large LTL Fonts Proof Sheet}
+
+\bigskip
+
+\noindent An \ltl formula $\phi$ is defined by the following grammar:
+\[
+\phi \mathrel{::=}
+\begin{array}[t]{@{}l@{}}
+p
+\mid \Not \phi
+\mid \phi \And \phi
+\mid \phi \Or \phi
+\mid \phi \Impl \phi
+\mid \phi \Iff \phi
+\mid \A{x} \phi
+\mid \E{x} \phi \\
+{} \mid \Box \phi
+\mid \Diam \phi
+\mid \Next \phi
+\mid \phi \Until \phi
+\mid \phi \WaitFor \phi
+\mid \SoFar \phi
+\mid \Once \phi
+\mid \Prev \phi
+\mid \Before \phi
+\mid \phi \Since \phi
+\mid \phi \BackTo \phi \text{,}
+\end{array}
+\]
+where $p$ is an assertion and $x$ is a variable.
+
+The truth of an \ltl formula $\phi$ at position $n$ of an infinite
+sequence $\sigma$ of states is denoted $\sigma, n \models \phi$ and
+defined, by induction on the structure of $\phi$, as follows:
+\begin{itemize}
+\item $\sigma, n \models p$, for $p$ an assertion, if $p$ holds at
+  state $\sigma[n]$;
+\item $\sigma, n \models \Not \phi$ if $\sigma, n \nmodels \phi$;
+\item $\sigma, n \models \phi \And \psi$ if both $\sigma, n \models
+  \phi$ and $\sigma, n \models \psi$;
+\item $\sigma, n \models \phi \Or \psi$ if either $\sigma, n \models
+  \phi$ or $\sigma, n \models \psi$, or both;
+\item[] $\vdots$
+\item $\sigma, n \models \Box \phi$ if $\sigma, i \models \phi$ for
+  all $i \geq n$;
+\item $\sigma, n \models \Diam \phi$ if there exists $i \geq n$ such
+  that $\sigma, i \models \phi$;
+\item $\sigma, n \models \Next \phi$ if $\sigma, (i+1) \models \phi$;
+\item $\sigma, n \models \phi \Until \psi$ if there exists $i \geq n$
+  such that $\sigma, i \models \psi$ and $\sigma, j \models \phi$ for
+  all $j \in [n, j)$;
+\item $\sigma, n \models \phi \WaitFor \psi$ if either $\sigma, n
+  \models \phi \Until \psi$ or $\sigma, n \models \Box \phi$;
+\item $\sigma, n \models \SoFar \phi$ if $\sigma, i \models \phi$ for
+  all $i \in [0, n]$;
+\item $\sigma, n \models \Diam \phi$ if there exists $i \in [0, n]$
+  such that $\sigma, i \models \phi$;
+\item $\sigma, n \models \Prev \phi$ if $n > 0$ and $\sigma, (i-1)
+  \models \phi$;
+\item $\sigma, n \models \Before \phi$ if either $n = 0$ or $\sigma,
+  (i-1) \models \phi$;
+\item $\sigma, n \models \phi \Since \psi$ if there exists $i \in [0,
+  n]$ such that $\sigma, i \models \psi$ and $\sigma, j \models \phi$
+  for all $j \in (j, n]$;
+\item $\sigma, n \models \phi \BackTo \psi$ if either $\sigma, n
+  \models \phi \Since \psi$ or $\sigma, n \models \SoFar \phi$.
+\end{itemize}
+
+\noindent The strict versions of the operators are defined as follows:
+\begin{align*}
+  \BoxHat \phi          &\equiv \Next \Box \phi             &
+  \SoFarHat \phi        &\equiv \Before \SoFar \phi         \\
+  \DiamHat \phi         &\equiv \Next \Diam \phi            &
+  \OnceHat \phi         &\equiv \Prev \Once \phi            \\
+  \phi \UntilHat \psi   &\equiv \Next (\phi \Until \psi)    &
+  \phi \SinceHat \psi   &\equiv \Prev (\phi \Since \psi)    \\
+  \phi \WaitForHat \psi &\equiv \Next (\phi \WaitFor \psi)  &
+  \phi \BackToHat \psi  &\equiv \Before (\phi \BackTo \psi)
+\end{align*}
+
+\newpage
+
+Some examples:
+\begin{align*}
+  & p \Impl \Diam q && \Box (p \Impl \Diam q) && \Box \Diam q \\
+  & \Diam \Box q && (\Not q) \WaitFor p
+  && \Box (p \Impl q \WaitForHat r) \\
+  & \Box \E{u} \bigl( x = u \And \Next(x = u+1) \bigr)
+  && \A{u} \Box \bigl( x = u \Impl \DiamHat (y = u) \bigr)
+  && \E{b.} b \And \Box (b \Iff \Not \Next b) \And \Box (p \Impl b) \\
+  & \Box (q \Impl \Once p)
+  && p \Entail q_m \WaitFor q_{m-1} \dots q_1 \WaitFor q_0
+  && p \Until q \sim \Diam (q \And \SoFarHat p)
+\end{align*}
+
+Operator pairs:
+\begin{align*}
+  & \Box \Box p && \Box \Diam p && \Box \Next p && \Box (p \Until q)
+  && \Box (p \WaitFor q) \\
+  & \Box \SoFar p && \Box \Once p && \Box \Prev p && \Box \Before p
+  && \Box (p \Since q) && \Box (p \BackTo q) \\
+%
+  & \Diam \Box p && \Diam \Diam p && \Diam \Next p
+  && \Diam (p \Until q) && \Diam (p \WaitFor q) \\
+  & \Diam \SoFar p && \Diam \Once p && \Diam \Prev p
+  && \Diam \Before p && \Diam (p \Since q) && \Diam (p \BackTo q) \\
+%
+  & \Next \Box p && \Next \Diam p && \Next \Next p
+  && \Next (p \Until q) && \Next (p \WaitFor q) \\
+  & \Next \SoFar p && \Next \Once p && \Next \Prev p
+  && \Next \Before p && \Next (p \Since q) && \Next (p \BackTo q) \\
+%
+  & \Box p \Until \Box q && \Diam p \Until \Diam q
+  && \Next p \Until \Next q && (p \Until q) \Until (r \Until s)
+  && (p \WaitFor q) \Until (r \WaitFor s) \\
+  & \SoFar p \Until \SoFar q && \Once p \Until \Once q
+  && \Prev p \Until \Prev q && \Before p \Until \Before q
+  && (p \Since q) \Until (r \Since s)
+  && (p \BackTo q) \Until (r \BackTo s) \\
+%
+  & \Box p \WaitFor \Box q && \Diam p \WaitFor \Diam q
+  && \Next p \WaitFor \Next q && (p \Until q) \WaitFor (r \Until s)
+  && (p \WaitFor q) \WaitFor (r \WaitFor s) \\
+  & \SoFar p \WaitFor \SoFar q && \Once p \WaitFor \Once q
+  && \Prev p \WaitFor \Prev q && \Before p \WaitFor \Before q
+  && (p \Since q) \WaitFor (r \Since s)
+  && (p \BackTo q) \WaitFor (r \BackTo s) \\
+%
+  & \SoFar \Box p && \SoFar \Diam p && \SoFar \Next p
+  && \SoFar (p \Until q) && \SoFar (p \WaitFor q) \\
+  & \SoFar \SoFar p && \SoFar \Once p && \SoFar \Prev p
+  && \SoFar \Before p && \SoFar (p \Since q)
+  && \SoFar (p \BackTo q) \\
+%
+  & \Once \Box p && \Once \Diam p && \Once \Next p
+  && \Once (p \Until q) && \Once (p \WaitFor q) \\
+  & \Once \SoFar p && \Once \Once p && \Once \Prev p
+  && \Once \Before p && \Once (p \Since q) && \Once (p \BackTo q) \\
+%
+  & \Prev \Box p && \Prev \Diam p && \Prev \Next p
+  && \Prev (p \Until q) && \Prev (p \WaitFor q) \\
+  & \Prev \SoFar p && \Prev \Once p && \Prev \Prev p
+  && \Prev \Before p && \Prev (p \Since q) && \Prev (p \BackTo q) \\
+%
+  & \Before \Box p && \Before \Diam p && \Before \Next p
+  && \Before (p \Until q) && \Before (p \WaitFor q) \\
+  & \Before \SoFar p && \Before \Once p && \Before \Prev p
+  && \Before \Before p && \Before (p \Since q)
+  && \Before (p \BackTo q) \\
+%
+  & \Box p \Since \Box q && \Diam p \Since \Diam q
+  && \Next p \Since \Next q && (p \Until q) \Since (r \Until s)
+  && (p \WaitFor q) \Since (r \WaitFor s) \\
+  & \SoFar p \Since \SoFar q && \Once p \Since \Once q
+  && \Prev p \Since \Prev q && \Before p \Since \Before q
+  && (p \Since q) \Since (r \Since s)
+  && (p \BackTo q) \Since (r \BackTo s) \\
+%
+  & \Box p \BackTo \Box q && \Diam p \BackTo \Diam q
+  && \Next p \BackTo \Next q && (p \Until q) \BackTo (r \Until s)
+  && (p \WaitFor q) \BackTo (r \WaitFor s) \\
+  & \SoFar p \BackTo \SoFar q && \Once p \BackTo \Once q
+  && \Prev p \BackTo \Prev q && \Before p \BackTo \Before q
+  && (p \Since q) \BackTo (r \Since s)
+  && (p \BackTo q) \BackTo (r \BackTo s)
+\end{align*}
+
+Upper case versions of the font (right column):
+\begin{align*}
+  & \Box P \Impl \Next\Diam Q
+  && \LTLsquareuc P \Impl \LTLcircleuc \LTLdiamonduc Q \\
+  & \Box \E{u} \bigl( x = u \And \Next(x = u+1) \bigr)
+  && \LTLsquareuc \E{u} \bigl( x = u \And \Next (x = u+1) \bigr)
+\end{align*}
+
+
+\end{document}

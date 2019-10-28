@@ -1,0 +1,14 @@
+Current version: 0.1.2, 16 January 2007
+- Added PFM metric file required by Adobe Distiller and other software
+  under Microsoft Windows.
+
+Version: 0.1.1, 6 August 2006
+- Available to a small group of collaborators.
+- Improved web site.
+- Added Adobe Font Metric (AFM) file to the distribution.
+
+Version: 0.1.0, 30 July 2006
+- First available to others than myself. It was released to the
+  current members of prof. Zohar Manna's research group at Stanford
+  and should be consider an alpha stage. The goal is to get feedback
+  so I can improve the font.

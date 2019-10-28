@@ -24,7 +24,7 @@
 \begin{document}
 \maketitle{}
 
-\tableofcontents
+%\tableofcontents
 
 \clearpage
 \newpage
@@ -52,6 +52,7 @@ transition systems. Assume that the initial values of the registers are r1=0 and
 		\includegraphics*[scale=0.5]{21a2.png}
 	\end{centering}
 \end{itemize}
+\newpage
 (b)
 \begin{itemize}
 	\item Reachable part:\\
@@ -109,6 +110,7 @@ green signal lamps in the following order: A1,A2,A3, A1,A2,A3, ... .\\
 (Hint: Choose an appropriate communication mechanism.)\\
 (c) Outline the transition system $A1\|A2\|A3\|C$.
 
+\newpage
 \subsection*{Answer}
 \begin{itemize}
 	\item \begin{centering}
@@ -117,7 +119,7 @@ green signal lamps in the following order: A1,A2,A3, A1,A2,A3, ... .\\
 	\item \begin{centering}
 		\includegraphics*[scale=0.5]{23b.png}
 	\end{centering}
-	\item 
+	\item /
 \end{itemize}
 
 \newpage
@@ -167,8 +169,8 @@ is a single, atomic step.\\
 		\includegraphics*[scale=0.5]{25c.png}
 	\end{centering}
 	\item P = $\{CRIT_1, CRIT_2, r_1, r_2\}$\\
-		ME is ensured:
-	\item Starvation freedom is not ensured:
+		ME is ensured: it cannot happen that 2 processes execute the critical section at the same time due to the \textbf{wait} condition.
+	\item Starvation freedom is not ensured: it may happen that a process is always surpassed by one or more other processes.
 \end{itemize}
 
 \newpage
@@ -298,6 +300,7 @@ suffices.)\\
 	\item \begin{centering}
 		\includegraphics*[scale=0.6]{210b.jpg}
 	\end{centering}
+	\item /
 \end{itemize}
 
 \newpage

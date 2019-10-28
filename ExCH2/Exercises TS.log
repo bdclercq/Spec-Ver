@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.20)  14 OCT 2019 21:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.20)  15 OCT 2019 11:24
 entering extended mode
 **"./Exercises TS.tex"
 ("Exercises TS.tex"
@@ -415,14 +415,10 @@ LaTeX Info: Redefining \selectfont on input line 126.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-("Exercises TS.toc")
-\tf@toc=\write5
-\openout5 = `"Exercises TS.toc"'.
-
- [1
+[1
 
 {C:/Users/bdcle/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<circuits.png, id=12, 416.55624pt x 128.48pt>
+<circuits.png, id=10, 416.55624pt x 128.48pt>
 File: circuits.png Graphic file (type png)
 <use circuits.png>
 Package pdftex.def Info: circuits.png  used on input line 36.
@@ -438,110 +434,112 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 46.
-<21a1.png, id=15, 354.32375pt x 103.38625pt>
+<21a1.png, id=13, 354.32375pt x 103.38625pt>
 File: 21a1.png Graphic file (type png)
 <use 21a1.png>
 Package pdftex.def Info: 21a1.png  used on input line 48.
 (pdftex.def)             Requested size: 177.16144pt x 51.693pt.
-<21a2.png, id=17, 395.4775pt x 155.58125pt>
+<21a2.png, id=15, 395.4775pt x 155.58125pt>
 File: 21a2.png Graphic file (type png)
 <use 21a2.png>
 Package pdftex.def Info: 21a2.png  used on input line 52.
 (pdftex.def)             Requested size: 197.73827pt x 77.79042pt.
-<21b.png, id=19, 726.715pt x 377.41pt>
+ [2
+
+ <./circuits.png> <./21a1.png> <./21a2.png>]
+<21b.png, id=32, 726.715pt x 377.41pt>
 File: 21b.png Graphic file (type png)
 <use 21b.png>
-Package pdftex.def Info: 21b.png  used on input line 59.
+Package pdftex.def Info: 21b.png  used on input line 60.
 (pdftex.def)             Requested size: 363.3566pt x 188.70453pt.
 
-Overfull \hbox (2.7313pt too wide) in paragraph at lines 57--61
+Overfull \hbox (2.7313pt too wide) in paragraph at lines 58--62
 [] 
  []
 
-[2
-
- <./circuits.png> <./21a1.png> <./21a2.png>] [3 <./21b.png>]
-<algo1.png, id=41, 343.2825pt x 133.49875pt>
+[3 <./21b.png>]
+<algo1.png, id=40, 343.2825pt x 133.49875pt>
 File: algo1.png Graphic file (type png)
 <use algo1.png>
-Package pdftex.def Info: algo1.png  used on input line 70.
+Package pdftex.def Info: algo1.png  used on input line 71.
 (pdftex.def)             Requested size: 171.64082pt x 66.74919pt.
-<algo2.png, id=43, 343.2825pt x 83.31125pt>
+<algo2.png, id=42, 343.2825pt x 83.31125pt>
 File: algo2.png Graphic file (type png)
 <use algo2.png>
-Package pdftex.def Info: algo2.png  used on input line 75.
+Package pdftex.def Info: algo2.png  used on input line 76.
 (pdftex.def)             Requested size: 171.64082pt x 41.65552pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--82
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
 [4 <./algo1.png> <./algo2.png>]
-<ex23.png, id=59, 406.51875pt x 191.21437pt>
+<ex23.png, id=58, 406.51875pt x 191.21437pt>
 File: ex23.png Graphic file (type png)
 <use ex23.png>
-Package pdftex.def Info: ex23.png  used on input line 103.
+Package pdftex.def Info: ex23.png  used on input line 104.
 (pdftex.def)             Requested size: 390.0pt x 183.4499pt.
-<23a.png, id=61, 884.30376pt x 95.35625pt>
+ [5 <./ex23.png>]
+<23a.png, id=68, 884.30376pt x 95.35625pt>
 File: 23a.png Graphic file (type png)
 <use 23a.png>
-Package pdftex.def Info: 23a.png  used on input line 115.
+Package pdftex.def Info: 23a.png  used on input line 117.
 (pdftex.def)             Requested size: 360.6253pt x 38.88678pt.
-<23b.png, id=63, 180.675pt x 1215.54124pt>
+<23b.png, id=70, 180.675pt x 1215.54124pt>
 File: 23b.png Graphic file (type png)
 <use 23b.png>
-Package pdftex.def Info: 23b.png  used on input line 118.
+Package pdftex.def Info: 23b.png  used on input line 120.
 (pdftex.def)             Requested size: 90.33727pt x 607.76913pt.
- [5 <./ex23.png> <./23a.png>]
+ [6 <./23a.png>]
 Overfull \vbox (59.26913pt too high) has occurred while \output is active []
 
 
-[6 <./23b.png>] [7]
-Overfull \hbox (109.38298pt too wide) in paragraph at lines 133--139
+[7 <./23b.png>] [8]
+Overfull \hbox (109.38298pt too wide) in paragraph at lines 135--141
 $[]$ 
  []
 
-[8]
-<ex25.png, id=94, 219.06844pt x 115.93312pt>
+[9]
+<ex25.png, id=97, 219.06844pt x 115.93312pt>
 File: ex25.png Graphic file (type png)
 <use ex25.png>
-Package pdftex.def Info: ex25.png  used on input line 148.
+Package pdftex.def Info: ex25.png  used on input line 150.
 (pdftex.def)             Requested size: 219.06789pt x 115.93283pt.
 Missing character: There is no ¬ in font cmr12!
 Missing character: There is no ¥ in font cmr12!
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--157
+Underfull \hbox (badness 10000) in paragraph at lines 145--159
 
  []
 
-<25a.png, id=96, 239.89626pt x 370.38374pt>
+<25a.png, id=99, 239.89626pt x 370.38374pt>
 File: 25a.png Graphic file (type png)
 <use 25a.png>
-Package pdftex.def Info: 25a.png  used on input line 161.
+Package pdftex.def Info: 25a.png  used on input line 163.
 (pdftex.def)             Requested size: 119.94783pt x 185.1914pt.
-[9 <./ex25.png>]
-<25b.png, id=106, 444.66125pt x 444.66125pt>
+[10 <./ex25.png>]
+<25b.png, id=109, 444.66125pt x 444.66125pt>
 File: 25b.png Graphic file (type png)
 <use 25b.png>
-Package pdftex.def Info: 25b.png  used on input line 164.
+Package pdftex.def Info: 25b.png  used on input line 166.
 (pdftex.def)             Requested size: 222.33008pt x 222.33008pt.
-<25c.png, id=108, 567.11874pt x 654.445pt>
+<25c.png, id=111, 567.11874pt x 654.445pt>
 File: 25c.png Graphic file (type png)
 <use 25c.png>
-Package pdftex.def Info: 25c.png  used on input line 167.
+Package pdftex.def Info: 25c.png  used on input line 169.
 (pdftex.def)             Requested size: 283.55867pt x 327.2217pt.
- [10 <./25a.png> <./25b.png>] [11 <./25c.png>]
-<26a.png, id=125, 402.50375pt x 273.02pt>
+ [11 <./25a.png> <./25b.png>] [12 <./25c.png>]
+<26a.png, id=128, 402.50375pt x 273.02pt>
 File: 26a.png Graphic file (type png)
 <use 26a.png>
-Package pdftex.def Info: 26a.png  used on input line 186.
+Package pdftex.def Info: 26a.png  used on input line 188.
 (pdftex.def)             Requested size: 281.7507pt x 191.11269pt.
-<26b.png, id=127, 285.065pt x 622.325pt>
+<26b.png, id=130, 285.065pt x 622.325pt>
 File: 26b.png Graphic file (type png)
 <use 26b.png>
-Package pdftex.def Info: 26b.png  used on input line 189.
+Package pdftex.def Info: 26b.png  used on input line 191.
 (pdftex.def)             Requested size: 156.78622pt x 342.2798pt.
- [12 <./26a.png>] [13 <./26b.png>]
+ [13 <./26a.png>] [14 <./26b.png>]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
@@ -566,70 +564,70 @@ Missing character: There is no í in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no à in font cmr12!
 Missing character: There is no í in font cmr12!
-<ex27.png, id=145, 293.59688pt x 149.05687pt>
+<ex27.png, id=148, 293.59688pt x 149.05687pt>
 File: ex27.png Graphic file (type png)
 <use ex27.png>
-Package pdftex.def Info: ex27.png  used on input line 205.
+Package pdftex.def Info: ex27.png  used on input line 207.
 (pdftex.def)             Requested size: 234.8778pt x 119.24565pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--214
+Underfull \hbox (badness 10000) in paragraph at lines 198--216
 
  []
 
-<27a.png, id=147, 522.95375pt x 486.81876pt>
+<27a.png, id=150, 522.95375pt x 486.81876pt>
 File: 27a.png Graphic file (type png)
 <use 27a.png>
-Package pdftex.def Info: 27a.png  used on input line 218.
+Package pdftex.def Info: 27a.png  used on input line 220.
 (pdftex.def)             Requested size: 261.47623pt x 243.40878pt.
-[14 <./ex27.png>] [15 <./27a.png>]
+[15 <./ex27.png>] [16 <./27a.png>]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no à in font cmr12!
 Missing character: There is no í in font cmr12!
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--241
+Underfull \hbox (badness 10000) in paragraph at lines 232--243
 
  []
 
-[16]
-<ex29.png, id=171, 432.86719pt x 120.45pt>
+[17]
+<ex29.png, id=174, 432.86719pt x 120.45pt>
 File: ex29.png Graphic file (type png)
 <use ex29.png>
-Package pdftex.def Info: ex29.png  used on input line 254.
+Package pdftex.def Info: ex29.png  used on input line 256.
 (pdftex.def)             Requested size: 432.86612pt x 120.44969pt.
 
-Overfull \hbox (42.86612pt too wide) in paragraph at lines 251--264
+Overfull \hbox (42.86612pt too wide) in paragraph at lines 253--266
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--264
+Underfull \hbox (badness 10000) in paragraph at lines 253--266
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--264
+Underfull \hbox (badness 10000) in paragraph at lines 253--266
 
  []
 
-<29a.jpg, id=173, 238.2501pt x 308.352pt>
+<29a.jpg, id=176, 238.2501pt x 308.352pt>
 File: 29a.jpg Graphic file (type jpg)
 <use 29a.jpg>
-Package pdftex.def Info: 29a.jpg  used on input line 267.
+Package pdftex.def Info: 29a.jpg  used on input line 269.
 (pdftex.def)             Requested size: 238.24951pt x 308.35124pt.
-[17 <./ex29.png>]
-<29b.jpg, id=183, 238.2501pt x 308.352pt>
+[18 <./ex29.png>]
+<29b.jpg, id=186, 238.2501pt x 308.352pt>
 File: 29b.jpg Graphic file (type jpg)
 <use 29b.jpg>
-Package pdftex.def Info: 29b.jpg  used on input line 270.
+Package pdftex.def Info: 29b.jpg  used on input line 272.
 (pdftex.def)             Requested size: 238.24951pt x 308.35124pt.
- [18 <./29a.jpg>] [19 <./29b.jpg>]
+ [19 <./29a.jpg>] [20 <./29b.jpg>]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
-<ex210.png, id=197, 386.19281pt x 171.64125pt>
+<ex210.png, id=200, 386.19281pt x 171.64125pt>
 File: ex210.png Graphic file (type png)
 <use ex210.png>
-Package pdftex.def Info: ex210.png  used on input line 284.
+Package pdftex.def Info: ex210.png  used on input line 286.
 (pdftex.def)             Requested size: 308.95465pt x 137.31316pt.
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
@@ -638,65 +636,65 @@ Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
 
-Underfull \hbox (badness 10000) in paragraph at lines 281--292
+Underfull \hbox (badness 10000) in paragraph at lines 283--294
 
  []
 
-<210a.jpg, id=199, 614.295pt x 794.97pt>
+<210a.jpg, id=202, 614.295pt x 794.97pt>
 File: 210a.jpg Graphic file (type jpg)
 <use 210a.jpg>
-Package pdftex.def Info: 210a.jpg  used on input line 296.
+Package pdftex.def Info: 210a.jpg  used on input line 298.
 (pdftex.def)             Requested size: 368.57983pt x 476.98569pt.
 
-Overfull \hbox (7.95453pt too wide) in paragraph at lines 296--298
+Overfull \hbox (7.95453pt too wide) in paragraph at lines 298--300
 [][] 
  []
 
-[20 <./ex210.png>]
-<210b.jpg, id=209, 614.295pt x 794.97pt>
+[21 <./ex210.png>]
+<210b.jpg, id=212, 614.295pt x 794.97pt>
 File: 210b.jpg Graphic file (type jpg)
 <use 210b.jpg>
-Package pdftex.def Info: 210b.jpg  used on input line 299.
+Package pdftex.def Info: 210b.jpg  used on input line 301.
 (pdftex.def)             Requested size: 368.57983pt x 476.98569pt.
 
-Overfull \hbox (7.95453pt too wide) in paragraph at lines 299--301
+Overfull \hbox (7.95453pt too wide) in paragraph at lines 301--303
 [][] 
  []
 
-[21 <./210a.jpg>] [22 <./210b.jpg>]
-<ex211.png, id=222, 426.84468pt x 185.94469pt>
+[22 <./210a.jpg>] [23 <./210b.jpg>]
+<ex211.png, id=225, 426.84468pt x 185.94469pt>
 File: ex211.png Graphic file (type png)
 <use ex211.png>
-Package pdftex.def Info: ex211.png  used on input line 308.
+Package pdftex.def Info: ex211.png  used on input line 311.
 (pdftex.def)             Requested size: 341.47621pt x 148.75594pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 306--314
+Underfull \hbox (badness 10000) in paragraph at lines 309--317
 
  []
 
-<211a.jpg, id=224, 614.295pt x 794.97pt>
+<211a.jpg, id=227, 614.295pt x 794.97pt>
 File: 211a.jpg Graphic file (type jpg)
 <use 211a.jpg>
-Package pdftex.def Info: 211a.jpg  used on input line 318.
+Package pdftex.def Info: 211a.jpg  used on input line 321.
 (pdftex.def)             Requested size: 276.43019pt x 357.7332pt.
-[23 <./ex211.png>]
+[24 <./ex211.png>]
 Missing character: There is no ¬ in font cmr12!
 Missing character: There is no ¥ in font cmr12!
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 323.
- [24 <./211a.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 323.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 326.
+ [25 <./211a.jpg>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 326.
  ("Exercises TS.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 323.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 323.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 326.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 326.
 Package rerunfilecheck Info: File `"Exercises TS".out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 323.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 326.
  ) 
 Here is how much of TeX's memory you used:
- 7631 strings out of 493305
- 112879 string characters out of 3146678
+ 7627 strings out of 493305
+ 112761 string characters out of 3146678
  203579 words of memory out of 3000000
- 11021 multiletter control sequences out of 15000+200000
+ 11020 multiletter control sequences out of 15000+200000
  9933 words of font info for 36 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,7n,38p,474b,388s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -705,9 +703,9 @@ ublic/amsfonts/cm/cmmi12.pfb><D:/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pf
 b><D:/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/MiKTeX/fonts/type1/pu
 blic/amsfonts/cm/cmr17.pfb><D:/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><
 D:/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on "Exercises TS.pdf" (24 pages, 3819321 bytes).
+Output written on "Exercises TS.pdf" (25 pages, 3820083 bytes).
 PDF statistics:
- 277 PDF objects out of 1000 (max. 8388607)
+ 281 PDF objects out of 1000 (max. 8388607)
  59 named destinations out of 1000 (max. 500000)
  276 words of extra memory for PDF output out of 10000 (max. 10000000)
 
