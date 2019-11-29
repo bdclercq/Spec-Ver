@@ -1,0 +1,12 @@
+// graph
+digraph {
+	//rankdir="LR";
+	dummy [ label="dummy", style = invis ];
+	"q0" ;
+	"q1" ;
+	
+	dummy -> "q0";
+	"q0" -> "q0" [ label="a" ];
+	"q0" -> "q1" [ label="a" ];
+	"q1" -> "q1" [ label="b" ];
+}

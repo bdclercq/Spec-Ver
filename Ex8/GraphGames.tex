@@ -1,0 +1,206 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % This lets you include figures
+\usepackage{hyperref} % This lets you make links to web locations
+\graphicspath{ {./images/} }
+
+\usepackage[rightcaption]{sidecap}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+
+\usepackage{float}
+
+\usepackage{imakeidx}
+
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{wasysym}
+
+\usepackage{color,soul}
+\usepackage{listings}
+
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\makeindex
+
+
+\title{Pseudo-code}
+\author{Beau De Clercq}
+\date{November 2019}
+
+\begin{document}
+\maketitle{}
+
+%\tableofcontents
+
+
+\section{Ex. 1 p6}
+\subsection{Question}
+What is the computational complexity of determining whether u can reach v in a given graph? Can you describe an efficient algorithm to solve this problem?
+
+\subsection{Answer}
+Strongly Connected Components:
+\begin{itemize}
+	\item Perform a DFS on the graph $G = (V, E)$.
+	\item Construct the graph $G' = (V, E')$ where $(u, v) \in E'$ iff $(v, u) \in E$.
+	\item Perform a DFS on $G'$ (the SCC's will be produced in this step).
+\end{itemize}
+Complexity: $O(|V|+|E|)$.
+
+\newpage
+\section{Ex. 2 p8}
+\subsection{Question}
+Is the language L = $\{w|\#_a(w) \geq \#b(w)\}$, where $\#_\sigma(w)$ denotes the number of times the symbol $\sigma$ occurs in $w$, an $\omega$-regular language?
+
+\subsection{Answer}
+No: counting is not possible.
+
+
+\section{Ex. 3 p9}
+\subsection{Question}
+Are the words $a^\omega$ and $ab^\omega$ in the language of the automaton from Figure 1 in the following cases?
+\begin{itemize}
+	\item with reachability acceptance condition and T = $\{q_0\}$
+	\item with safety acceptance condition and U = $\{q_2\}$
+	\item with Büchi acceptance condition and B = $\{q_2\}$
+	\item with co-Büchi acceptance condition and B = $\{q_2\}$
+	\item with parity acceptance condition
+\end{itemize}
+
+\subsection{Answer}
+
+
+\section{Ex. 4 p11}
+\subsection{Question}
+Consider the sequence $\alpha = 1,-1, 1, 1,-1, 1, 1, 1, 1, . . .$ where the i-th $-1$ is followed by $2^i$ occurrences of 1. What are the values of $\textrm{\underline{MP(a)}}$ and $\overline{MP(a)}$?
+
+\subsection{Answer}
+
+
+\section{Ex. 5 p12}
+\subsection{Question}
+With $\aleph = 3^\omega$ and $\lambda = \frac{3}{4}$, what is the value of DS$_\lambda(\aleph)$?
+
+\subsection{Answer}
+
+
+\section{Ex. 6 p12}
+\subsection{Question}
+Using the meanpayoff example, prove that the parity and co-Büchi payoff
+ functions are Borel when $\triangleright = \geq$ and $a = 1$.
+
+\subsection{Answer}
+
+
+\section{Ex. 7 p16}
+\subsection{Question}
+In the game from Figure 2, does Eve have a strategy to ensure her mean-payoff value is non-negative?
+
+\subsection{Answer}
+
+
+\section{Ex. 8 p16}
+\subsection{Question}
+Describe the Mealy machine
+that corresponds to the strategy Eve for
+the game in Figure 2 which consists in
+playing from $v_0$ to $v_1$ every other time
+$v_0$ is visited and to $v_0$ otherwise.
+
+\subsection{Answer}
+
+
+\section{Ex. 9 p17}
+\subsection{Question}
+Describe the product of the strategy from the previous exercise and the game.
+
+\subsection{Answer}
+
+
+\section{Ex. 10 p21}
+\subsection{Question}
+Is ``staying in $v_0$ forever''
+a worst-case optimal strategy for Eve
+in the game from Figure 2 with the
+mean-payoff function?
+
+\subsection{Answer}
+
+
+\section{Ex. 11 p21}
+\subsection{Question}
+Describe best-case optimal strategies for both players in the game from Figure 2 with the mean-payoff function. What is the co-operative value of the game?
+
+\subsection{Answer}
+
+
+\section{Ex. 12 p22}
+\subsection{Question}
+Consider the game from Figure 4 and suppose that Adam wants to ensure at most two vertices distinct are visited. From which vertices can he win against Eve? Describe a strategy of his that witnesses the fact. What if we allow at most three vertices?
+
+\subsection{Answer}
+
+
+\section{Ex. 13 p27}
+\subsection{Question}
+Give a proof by induction of Theorem 10 for Eve based on the definition of the attractor sets.
+
+\subsection{Answer}
+
+
+\section{Ex. 14 p28}
+\subsection{Question}
+Prove Theorem 11.
+
+\subsection{Answer}
+
+
+\section{Ex. 15 p28}
+\subsection{Question}
+Prove Theorem 12 using the fact that positional strategies suffice for both players in reachability games.
+
+\subsection{Answer}
+
+
+\section{Ex. 16 p28}
+\subsection{Question}
+Using the fact that $R$ is exactly the set of vertices from which a player wins a reachability game (and the other one loses a safety game), prove that $G\setminus R$ contains no sinks. Prove that $G\setminus S$ also contains no sinks.
+
+\subsection{Answer}
+
+
+\section{Ex. 17 p29}
+\subsection{Question}
+Prove the upper bound on the running time of the algorithm.
+
+\subsection{Answer}
+
+\section{Ex. 18 p30}
+\subsection{Question}
+Given a (co-)Büchi game, construct a parity game with the same arena such that both players win from a vertex for the original objective if and only if they win from it for the parity objective.
+(Tip: you should not use more than three priorities)
+
+\subsection{Answer}
+
+\section{Ex. 19}
+\subsection{Question}
+Based on how many recursive calls Zielonka’s algorithm makes on (co-)Büchi games, conclude that determining the winner of such games is decidable in polynomial time.
+
+\subsection{Answer}
+
+\section{Ex. 20}
+\subsection{Question}
+Compute all distinct attractor sets for both players in the game from Figure 5. From which vertices can each player guarantee to win the game?
+
+\subsection{Answer}
+
+\section{Ex. 21}
+\subsection{Question}
+Run Zielonka’s algorithm to determine the vertices from which each player can guarantee to win the parity game from Figure 6.
+
+\subsection{Answer}
+
+
+
+\end{document}

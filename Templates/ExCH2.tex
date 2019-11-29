@@ -1,0 +1,213 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % This lets you include figures
+\usepackage{hyperref} % This lets you make links to web locations
+\graphicspath{ {./images/} }
+
+\usepackage[rightcaption]{sidecap}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+
+\usepackage{float}
+
+\usepackage{imakeidx}
+
+\usepackage{amsmath}
+
+\makeindex
+
+
+\title{Exercises on Transition Systems}
+\author{Beau De Clercq}
+\date{October 2019}
+
+\begin{document}
+\maketitle{}
+
+%\tableofcontents
+
+\clearpage
+\newpage
+
+\section*{Ex. 2.1}
+\subsection*{Question}
+Consider the following two sequential hardware circuits:\\
+\begin{centering}
+	\includegraphics*[width=\linewidth]{circuits.png}
+\end{centering}
+\\
+(a) Give the transition systems of both hardware circuits.\\
+(b) Determine the reachable part of the transition system of the synchronous product of these
+transition systems. Assume that the initial values of the registers are r1=0 and r2=1.
+
+\subsection*{Answer}
+
+\newpage
+
+\section*{Ex. 2.2}
+\subsection*{Question}
+We are given three (primitive) processes $P_1, P_2,$ and $P_3$ with shared integer variable x. The program of process $P_i$ is as follows:\\
+\begin{centering}
+	\includegraphics*[scale=0.5]{algo1.png}
+\end{centering}
+\\
+That is, $P_i$ executes ten times the assignment x := x+1. The assignment x := x+1 is realized using the three actions LOAD(x), INC(x) and STORE(x). Consider now the parallel program:\\
+\begin{centering}
+	\includegraphics*[scale=0.5]{algo2.png}
+\end{centering}
+\\
+Does P have an execution that halts with the terminal value x = 2?
+
+\subsection*{Answer}
+
+\newpage
+\section*{Ex. 2.3}
+\subsection*{Question}
+Consider the following street junction with the specification of a traffic light as
+outlined on the right.\\
+\begin{centering}
+	\includegraphics*[width=\linewidth]{ex23.png}
+\end{centering}
+(a) Choose appropriate actions and label the transitions of the traffic light transition system
+accordingly.\\
+(b) Give the transition system representation of a (reasonable) controller C that switches the
+green signal lamps in the following order: A1,A2,A3, A1,A2,A3, ... .\\
+(Hint: Choose an appropriate communication mechanism.)\\
+(c) Outline the transition system $A1\|A2\|A3\|C$.
+
+\subsection*{Answer}
+
+\newpage
+\section*{Ex. 2.4}
+\subsection*{Question}
+Show that the handshaking operator $\|$ that forces two transition systems to
+synchronize over their common actions (see Definition 2.26 on page 48) is associative. That is,
+show that
+$(TS_1\|TS_2)\|TS_3 = TS_1\|(TS_2\|TS_3)$
+where $TS_1, TS_2, TS_3$ are arbitrary transition systems.
+
+\subsection*{Answer}
+
+\newpage
+\section*{Ex. 2.5}
+\subsection*{Question}
+The following program is a mutual exclusion protocol for two processes due to
+Pnueli [118]. There is a single shared variable s which is either 0 or 1, and initially 1. Besides,
+each process has a local Boolean variable y that initially equals 0. The program text for process
+$P_i$ (i = 0, 1) is as follows:\\
+\begin{centering}
+	\includegraphics*[scale=1]{ex25.png}
+\end{centering}\\
+Here, the statement $(y_i, s) := (1, i)$; is a multiple assignment in which variable $y_i := 1$ and $s := i$
+is a single, atomic step.\\
+(a) Define the program graph of a process in Pnueli´s algorithm.\\
+(b) Determine the transition system for each process.\\
+(c) Construct their parallel composition.\\
+(d) Check whether the algorithm ensures mutual exclusion.\\
+(e) Check whether the algorithm ensures starvation freedom.\\
+
+\subsection*{Answer}
+
+\newpage
+\section*{Ex. 2.6}
+\subsection*{Question}
+Consider a stack of nonnegative integers with capacity n (for some fixed n).\\
+(a) Give a transition system representation of this stack. You may abstract from the values on
+the stack and use the operations top, pop, and push with their usual meaning.\\
+(b) Sketch a transition system representation of the stack in which the concrete stack content is
+explicitly represented.
+
+\subsection*{Answer}
+
+\newpage
+\section*{Ex. 2.7}
+\subsection*{Question}
+Consider the following generalization of Peterson’s mutual exclusion algorithm
+that is aimed at an arbitrary number n (n $\geq$ 2) processes.\\
+The basic concept of the algorithm is that each process passes through n “levels” before acquiring access to the critical section. The concurrent processes share the bounded integer arrays y[0..n−1] and p[1..n] with y[i] ∈ {1, . . . , n } and p[i] ∈ {0, . . . , n−1 }. \\
+y[j] = i means that process i has the lowest priority at level j, and p[i] = j expresses that process i is currently at level j. Process i starts at level 0. \\
+On requesting access to the critical section, the process passes through levels 1 through n−1. Process i waits at
+level j until either all other processes are at a lower level (i.e., p[k] $<$ j for all k $\neq$ i) or another
+process grants process i access to its critical section (i.e., y[j] $\neq$ i). The behavior of process i is in
+pseudocode:\\
+\begin{centering}
+	\includegraphics*[scale=0.8]{ex27.png}
+\end{centering}\\
+(a) Give the program graph for process i.\\
+(b) Determine the number of states (including the unreachable states) in the parallel composition
+of n processes.\\
+(c) Prove that this algorithm ensures mutual exclusion for n processes.\\
+(d) Prove that it is impossible that all processes are waiting in the for-iteration.\\
+(e) Establish whether it is possible that a process that wants to enter the critical section waits
+ad infinitum.\\
+
+\subsection*{Answer}
+
+\newpage
+\section*{Ex. 2.8}
+\subsection*{Question}
+In channel systems, values can be transferred from one process to another process.\\
+As this is somewhat limited, we consider in this exercise an extension that allows for the transfer
+of expressions.\\
+That is to say, the send and receive statements c!v and c?x (where x and v are of
+the same type) are generalized into c!expr and c?x, where for simplicity it is assumed that expr
+is a correctly typed expression (of the same type as x). Legal expressions are, e.g., x $\wedge$ ($\neg$y $\lor$ z)
+for Boolean variables x, y, and z, and channel c with dom(c) = $\{$ 0, 1 $\}$. For integers x, y, and an
+integer-channel c, $|$2x + (x − y)div17$|$ is a legal expression.\\
+\\
+Extend the transition system semantics of channel systems such that expressions are
+allowed in send statements.
+
+\subsection*{Answer}
+
+\newpage
+\section*{Ex. 2.9}
+\subsection*{Question}
+Consider the following mutual exclusion algorithm that uses the shared variables
+y1 and y2 (initially both 0).\\
+\begin{centering}
+	\includegraphics*[scale=1]{ex29.png}
+\end{centering}
+\\
+(a) Give the program graph representations of both processes. (A pictorial representation suffices.)\\
+(b) Give the reachable part of the transition system of P1 $\|$ P2 where y1 $\leq$ 2 and y2 $\leq$ 2.\\
+(c) Describe an execution that shows that the entire transition system is infinite.\\
+(d) Check whether the algorithm indeed ensures mutual exclusion.\\
+(e) Check whether the algorithm never reaches a state in which both processes are mutually
+waiting for each other.\\
+(f) Is it possible that a process that wants to enter the critical section has to wait ad infinitum?\\
+
+\subsection*{Answer}
+
+\newpage
+\section*{Ex. 2.10}
+\subsection*{Question}
+Consider the following mutual exclusion algorithm that was proposed 1966 [221]
+as a simplification of Dijkstra’s mutual exclusion algorithm in case there are just two processes:\\
+\begin{centering}
+	\includegraphics*[scale=0.8]{ex210.png}
+\end{centering}\\
+Here C0, C1, and C2 are program labels, and the word “computer” should be interpreted as process.\\
+\\
+(a) Give the program graph representations for a single process. (A pictorial representation
+suffices.)\\
+(b) Give the reachable part of the transition system of P1 $\|$ P2.\\
+(c) Check whether the algorithm indeed ensures mutual exclusion.
+
+\subsection*{Answer}
+
+\newpage
+\section*{Ex. 2.11}
+\subsection*{Question}
+Consider the following two sequential hardware circuits C1 and C2:\\
+\begin{centering}
+	\includegraphics*[scale=0.8]{ex211.png}
+\end{centering}\\
+\\
+(a) Give the transition system representation TS(C1) of the circuit C1.\\
+(b) Let TS(C2) be the transition system of the circuit C2. Outline the transition system TS(C1) $\otimes$
+TS(C2).
+
+\subsection*{Answer}
+
+\end{document}

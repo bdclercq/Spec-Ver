@@ -46,21 +46,6 @@ For each property $P_i (1\leq i\leq 4)$, decide if it is a regular safety proper
 if so, define the NFA $A_i$ with $L(A_i)$ = BadPref($P_i$).
 
 \subsection*{Answer}
-\begin{itemize}
-	\item BadPref($P_1$) = $((\neg a)^*ab^*(a)^+c^?)^\omega$\\
-		\begin{centering}
-			\includegraphics*[scale=0.5]{ex41a.png}
-		\end{centering}
-	\item BadPref($P_2$) = $((\neg a)^*a(\neg b)^*a)^\omega$\\
-	\begin{centering}
-		\includegraphics*[scale=0.5]{ex41b.png}
-	\end{centering}
-	\item Not possible: counting is not possible.
-	\item BadPref($P_4$) = $((a\wedge \neg b)(b\wedge \neg a))^*(b\vee a)$\\
-	\begin{centering}
-		\includegraphics*[scale=0.7]{ex41d.png}
-	\end{centering}
-\end{itemize}
 
 \newpage
 \section*{Ex. 4.2}
@@ -75,9 +60,6 @@ ABBAABAB is in $L_3$.
 \end{itemize}
 
 \subsection*{Answer}
-\begin{centering}
-	\includegraphics*[scale=0.7]{ex2.pdf}
-\end{centering}
 
 \section*{Ex. 4.5}
 \subsection*{Question}
@@ -89,9 +71,6 @@ the following transition system TS:\\
 Construct the product $TS \otimes A$ of the transition system and the NFA.
 
 \subsection*{Answer}
-\begin{centering}
-	\includegraphics*[scale=0.15]{ex45.jpg}
-\end{centering}
 
 \newpage
 \section*{Ex. 4.12}
@@ -103,11 +82,9 @@ Consider the following NBA $A_1$ and $A_2$ over the alphabet $\{ A,B,C \}$:\\
 Find $\omega$-regular expressions for the languages accepted by $A_1$ and $A_2$.
 
 \subsection*{Answer}
-$L = (\tab((A(A\vee B\vee C)^*A)^*\vee (C(A\vee B\vee C\vee)^*C)^*)^*\\
-			\tab\tab((B\vee C)^*((A((BC)^*\vee (BA^*)))))\\
-		\tab)^\omega$
 
 \newpage
+
 \section*{Ex. 4.13}
 \subsection*{Question}
 Consider the NFA $A_1$ and $A_2$:\\
@@ -117,11 +94,9 @@ Consider the NFA $A_1$ and $A_2$:\\
 Construct an NBA for the language $L(A_1).L(A_2)^\omega$.
 
 \subsection*{Answer}
-\begin{centering}
-	\includegraphics*[scale=0.5]{ex413.png}
-\end{centering}
 
 \newpage
+
 \section*{Ex. 4.14}
 \subsection*{Question}
 Let AP = $\{ a, b \}$. Give an NBA for the LT property consisting of the infinite words $A_0A_1A_2...(2^{AP})^\omega$ such that\\
@@ -131,9 +106,7 @@ Let AP = $\{ a, b \}$. Give an NBA for the LT property consisting of the infinit
 Provide an $\omega$-regular expression for $L_\omega(A)$.
 
 \subsection*{Answer}
-\begin{centering}
-	\includegraphics*[scale=0.5]{ex414.png}
-\end{centering}
+
 
 \section*{Ex. 4.15}
 \subsection*{Question}
@@ -151,12 +124,9 @@ construction applied to $A_1$ and $A_2$ (viewed as NFA) yields the same determin
 while $L_\omega(A_1) \neq L_\omega(A_2)$.
 
 \subsection*{Answer}
-Both automatons have the same result of the powerset construction as depicted below.
-\begin{centering}
-	\includegraphics*[scale=0.5]{ex416.png}
-\end{centering}
 
 \newpage
+
 \section*{Ex. 4.17}
 \subsection*{Question}
 Consider the following NBA A with the alphabet $\Sigma = 2^{AP}$ where $AP =
@@ -169,9 +139,5 @@ Consider the following NBA A with the alphabet $\Sigma = 2^{AP}$ where $AP =
 	\item Show that there is no NBA $A'$ with $L_\omega(A) = L_\omega(A')$ and less than n states.
 \end{itemize}
 \subsection*{Answer}
-\begin{itemize}
-	\item $L(A) = (true (\neg a_1)^*a_1(\neg a_2)^*a_2 ...)^\omega$ (the language where $a_i$ occurs infinitely often)
-	\item The automaton to represent this language can be constructed with a minimum of n states. If it would be possible to do so in less than n states, the automaton would have to include a loop somewhere which would render some part of the automaton redundant and thereby changing the accepted language.
-\end{itemize}
 
 \end{document}

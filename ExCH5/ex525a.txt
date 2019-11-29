@@ -1,0 +1,17 @@
+// graph
+digraph {
+	rankdir="LR";
+	dummy [ label="dummy", style = invis ];
+	"q0" [ peripheries=2 ];
+	"q1" [ peripheries=2 ];
+	"q2" [ peripheries=2 ];
+	"q3" [ peripheries=2 ];
+	"q4" [ peripheries=2 ];
+	
+	dummy -> "q0";
+	"q0" -> "q1" [ label="T" ];
+	"q0" -> "q2" [ label="T" ];
+	"q2" -> "q3" [ label="T" ];
+	"q3" -> "q4" [ label="not a" ];
+	"q1" -> "q4" [ label="a" ];
+}

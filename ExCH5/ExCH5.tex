@@ -1,0 +1,140 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % This lets you include figures
+\usepackage{hyperref} % This lets you make links to web locations
+\graphicspath{ {./images/} }
+
+\usepackage[rightcaption]{sidecap}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+
+\usepackage{float}
+
+\usepackage{imakeidx}
+
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{wasysym}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\makeindex
+
+
+\title{Exercises on Chapter 5}
+\author{Beau De Clercq}
+\date{November 2019}
+
+\begin{document}
+\maketitle{}
+
+%\tableofcontents
+
+\clearpage
+\newpage
+
+\section*{Ex. 5.16}
+\subsection*{Question}
+Depict a GNBA G over the alphabet $\Sigma = 2^\{ a,b,c \}$ such that\\
+$L_\omega = Words((\Square \Diamond a \rightarrow \Square \Diamond b) \wedge \neg a \wedge (\neg a W c))$
+
+\subsection*{Answer}
+\includegraphics*[angle=270, scale=0.7]{ex516.pdf}
+
+
+\newpage
+\section*{Ex. 5.17}
+\subsection*{Question}
+Let $\psi = \Square (a \leftrightarrow \Circle \neg a)$ and $AP = \{a\}$.
+\begin{itemize}
+	\item Show that $\psi$ can be transformed into the following equivalent basic LTL formula
+	$\varphi = \neg [$true$\cup(\neg(a\wedge\Circle\neg a)\wedge\neg(\neg a\wedge\neg\Circle\neg a))]$.
+	\item Compute all elementary sets with respect to $closure(\varphi)$.
+	\item Construct the GNBA $G_\varphi$ with $L_\omega(G_\varphi) = Words(\varphi)$. To that end:
+		\begin{itemize}
+			\item Define its set of initial states and its acceptance component.
+			\item For each elementary set B, define $\delta(B,B\cap AP)$.
+		\end{itemize}
+\end{itemize}
+
+\subsection*{Answer}
+\includegraphics*[angle=270, scale=0.7]{ex517.pdf}
+
+\newpage
+\section*{Ex. 5.18}
+\subsection*{Question}
+Let $AP = \{a\}$ and $\varphi = (a\wedge\Circle a)\cup\neg a$ an LTL formula over $AP$.
+\begin{itemize}
+	\item Compute all elementary sets with respect to $\varphi$.
+	\item Construct the GNBA $G_\varphi$ such that $L_\omega(G_\varphi) = Words(\varphi)$.
+\end{itemize}
+
+\subsection*{Answer}
+\includegraphics*[angle=270, scale=0.7]{ex518.pdf}
+
+\newpage
+\section*{Ex. 5.20}
+\subsection*{Question}
+We consider the LTL formula $\varphi = \Square(a\rightarrow(\neg b\cup(a\wedge b)))$ over the set $AP = \{a,b\}$ of atomic propositions and we want to check $TS \models \varphi$ for $TS$ outlined below.
+
+\begin{itemize}
+	\item To check $TS \models \varphi$, convert $\neg\varphi$ into an equivalent LTL formula $\psi$ which is constructed according to the following grammar:\\
+	$\phi ::= $true$|a|b|\phi\wedge\phi|\neg\phi|\Circle\phi|\phi\cup\phi$.\\
+	Then construct $closure(\psi)$.
+	\item Give the elementary sets w.r.t. $closure(\psi)$!
+	\item Construct the GNBA $G_\psi$.
+	\item Construct an NBA $A_{\neg\varphi}$ $directly$ from $\neg\varphi$, i.e., without relying on $G_\psi$. (Four states suffice).
+	\item Construct $TS \otimes A_{\neg\varphi}$.
+\end{itemize}
+
+\subsection*{Answer}
+
+\newpage
+\section*{Ex. 5.23}
+\subsection*{Question}
+Which of the following LTL formulae $\varphi_i$ are representable by a determinstic B\"uchi automaton?
+\begin{center}
+	$\varphi_1 = \Square(a\rightarrow\Diamond b), \varphi_2 = \neg\varphi_1$
+\end{center}
+Explain your answer.
+
+\subsection*{Answer}
+Both formulae are representable by a DBA: both $\varphi_1$ and $\varphi_2$ have the same closure.\\
+$\varphi_1:$ \includegraphics*[scale=0.6]{ex523a.png}\\
+$\varphi_2:$ \includegraphics*[scale=0.6]{ex523b.png}
+
+\newpage
+\section*{Ex. 5.24}
+\subsection*{Question}
+Check for the following LTL formula whether they are (i) satisfiable, and/or (ii)
+valid:
+\begin{itemize}
+	\item $\Circle\Circle a \implies \Circle a$
+	\item $\Circle(a\vee\Diamond a) \implies\Diamond a$
+	\item $\Square a\implies \neg\Circle(\neg a\wedge\Square\neg a)$
+	\item $(\Square a)\cup(\Diamond b) \implies \Square(a\cup\Diamond b)$
+	\item $\Diamond b\implies (a\cup b)$
+\end{itemize}
+
+\subsection*{Answer}
+\begin{itemize}
+	\item Both satisfiable and valid
+	\begin{center}
+		\includegraphics*[scale=0.5]{ex525a.png}
+	\end{center}
+	\item Both satisfiable and valid
+	\begin{center}
+		\includegraphics*[scale=0.5]{ex525b.png}
+	\end{center}
+	\item Both satisfiable and valid
+	\begin{center}
+		\includegraphics*[scale=0.5]{ex525c.png}
+	\end{center}
+	\item Both satisfiable and valid
+	\item Both satisfiable and valid
+	\begin{center}
+		\includegraphics*[scale=0.5]{ex525e.png}
+	\end{center}
+\end{itemize}
+
+\end{document}

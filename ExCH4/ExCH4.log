@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.20)  28 OCT 2019 22:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.20)  29 OCT 2019 10:52
 entering extended mode
 **./ExCH4.tex
 (ExCH4.tex
@@ -577,26 +577,27 @@ File: ex416.png Graphic file (type png)
 <use ex416.png>
 Package pdftex.def Info: ex416.png  used on input line 156.
 (pdftex.def)             Requested size: 70.26231pt x 83.81291pt.
-<ex417.png, id=121, 546.54187pt x 428.35031pt>
+ [11 <./ex416.png>]
+<ex417.png, id=130, 546.54187pt x 428.35031pt>
 File: ex417.png Graphic file (type png)
 <use ex417.png>
-Package pdftex.def Info: ex417.png  used on input line 164.
+Package pdftex.def Info: ex417.png  used on input line 165.
 (pdftex.def)             Requested size: 273.27026pt x 214.17462pt.
- [11 <./ex416.png>]
-Overfull \hbox (0.42233pt too wide) in paragraph at lines 173--174
+
+Overfull \hbox (0.42233pt too wide) in paragraph at lines 174--175
 \OT1/cmr/m/n/12 would ren-der some part of the au-toma-ton re-dun-dant and ther
 eby chang-
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 176.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 177.
 [12 <./ex417.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 176.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 177.
  (ExCH4.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 176.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 176.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 177.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 177.
 Package rerunfilecheck Info: File `ExCH4.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 176.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 177.
  ) 
 Here is how much of TeX's memory you used:
  7755 strings out of 493305
@@ -605,14 +606,14 @@ Here is how much of TeX's memory you used:
  11158 multiletter control sequences out of 15000+200000
  11543 words of font info for 47 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,6n,38p,332b,378s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,6n,38p,332b,324s stack positions out of 5000i,500n,10000p,200000b,50000s
 <D:/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/MiKTeX/fonts/type1/p
 ublic/amsfonts/cm/cmmi12.pfb><D:/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pf
 b><D:/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/MiKTeX/fonts/type1/pu
 blic/amsfonts/cm/cmr17.pfb><D:/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><
 D:/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmsy8.pfb>
-Output written on ExCH4.pdf (12 pages, 2178307 bytes).
+Output written on ExCH4.pdf (12 pages, 2178355 bytes).
 PDF statistics:
  178 PDF objects out of 1000 (max. 8388607)
  40 named destinations out of 1000 (max. 500000)

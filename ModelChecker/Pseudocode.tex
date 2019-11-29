@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % This lets you include figures
+\usepackage{hyperref} % This lets you make links to web locations
+\graphicspath{ {./images/} }
+
+\usepackage[rightcaption]{sidecap}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+
+\usepackage{float}
+
+\usepackage{imakeidx}
+
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{wasysym}
+
+\usepackage{color,soul}
+\usepackage{listings}
+
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{pseudo}{
+	keywords={for, if, else, while},
+	keywordstyle=\color{purple}\bfseries,
+	ndkeywords={},
+	ndkeywordstyle=\color{darkgray}\bfseries,
+	identifierstyle=\color{black},
+	sensitive=false,
+	comment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{purple}\ttfamily
+}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\makeindex
+
+
+\title{Pseudo-code}
+\author{Beau De Clercq}
+\date{November 2019}
+
+\begin{document}
+\maketitle{}
+
+%\tableofcontents
+
+
+\section{Pseudo-code}
+\begin{lstlisting}[language=pseudo]
+// All states are encoded as bitvectors with 2^(I+L) bits
+states = readStates(aig_file) 
+// The AND gates decribe the transitions
+transitions = readAnds(aig_file) 
+visiting = Set(states.getFirst())
+visited = Set()
+// Expand all states
+while not visiting.isEmpty():
+	for s in visiting:
+		for succ in successors(s, transitions):
+			visiting.add(succ)
+		visited.add(s)
+		visiting.remove(s)
+// Check if the states that can be reached meet the requirements
+checkProperties(visited, properties)
+
+\end{lstlisting}
+
+
+
+
+\end{document}

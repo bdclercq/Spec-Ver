@@ -1,0 +1,8 @@
+(A[(a=true)U(b=true)]) | (E[X(A[G(b=true)])])
+
+A[G(A[(a=true)U(b=true)])]
+
+((a=true) & (b=true)) => E[G(E[X(A[(b=true)W(a=true)])])]
+
+A[G(E[F(((a=true) & (b=true)) => E[G(E[X(A[(b=true)W(a=true)])])])])]
+

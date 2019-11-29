@@ -1,0 +1,247 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % This lets you include figures
+\usepackage{hyperref} % This lets you make links to web locations
+\graphicspath{ {./images/} }
+
+\usepackage[rightcaption]{sidecap}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+
+\usepackage{float}
+
+\usepackage{imakeidx}
+
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{wasysym}
+
+\usepackage{color,soul}
+\usepackage{listings}
+
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{PRISM}{
+	keywords={module, init, endinit, endmodule, dtmc},
+	keywordstyle=\color{purple}\bfseries,
+	ndkeywords={bool},
+	ndkeywordstyle=\color{darkgray}\bfseries,
+	identifierstyle=\color{red},
+	sensitive=false,
+	comment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{purple}\ttfamily
+}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\makeindex
+
+
+\title{Exercises on Chapter 6}
+\author{Beau De Clercq}
+\date{November 2019}
+
+\begin{document}
+\maketitle{}
+
+%\tableofcontents
+
+\clearpage
+\newpage
+
+\section*{Ex. 6.1}
+\subsection*{Question}
+Consider the following transition system over AP = $\{ b, g, r, y \}$:
+\begin{center}
+	\includegraphics*[scale=0.8]{ex61.png}
+\end{center}
+The following atomic propositions are used: $r$ (red), $y$ (yellow), $g$ (green), and $b$ (black). The
+model is intended to describe a traffic light that is able to blink yellow. You are requested to
+indicate for each of the following CTL formulae the set of states for which these formulae hold:
+\begin{center}
+	\includegraphics*[scale=0.8]{ex61statements.png}
+\end{center}
+
+\subsection*{Answer}
+\begin{itemize}
+	\item $\{1,2,3,4\}$
+	\item $\{\}$
+	\item $\{1,2,3,4\}$
+	\item $\{1,3\}$
+	\item $\{1,2,3,4\}$
+	\item $\{\}$
+	\item $\{2,4\}$
+	\item $\{1,2,3,4\}$
+	\item $\{1,2,3,4\}$
+	\item $\{1,2,3,4\}$
+	\item $\{1\}$
+	\item $\{4\}$
+\end{itemize}
+
+
+\newpage
+\section*{Ex. 6.2}
+\subsection*{Question}
+Consider the following CTL formulae and the transition system $TS$ outlined on
+the right:
+\begin{center}
+	\includegraphics*[scale=0.6]{ex62.png}
+\end{center}
+Determine the satisfaction sets Sat($\phi_i$) and decide whether $TS \models\phi_i (1\leq i\leq 4)$.
+
+\subsection*{Answer}
+\begin{itemize}
+	\item $\phi_1$: $TS \not\models \phi_1$ (checked with PRISM), Sat($\phi_1$) = $\{s_0, s_1\}$
+	\item $\phi_2$: $TS \not\models \phi_2$ (checked with PRISM), Sat($\phi_2$) = $\{s_1, s_2, s_3\}$
+	\item $\phi_3$: $TS \models \phi_3$ (checked with PRISM), Sat($\phi_3$) = $\{s_0, s_2, s_3\}$
+	\item $\phi_4$: $TS \models \phi_4$ (checked with PRISM), Sat($\phi_4$) = $\{s_0, s_2, s_3\}$
+\end{itemize}
+
+\newpage
+\section*{Ex. 6.3}
+\subsection*{Question}
+Which of the following assertions are correct? Provide a proof or a counterexample.
+\begin{itemize}
+	\item If $s\models\exists\Square a$, then $s\models\forall\Square a$.
+	\item If $s\models\forall\Square a$, then $s\models\exists\Square a$.
+	\item If $s\models\forall\Diamond a\vee\forall\Diamond b$, then $s\models\forall\Diamond(a\vee b)$.
+	\item If $s\models\forall\Diamond(a\vee b)$, then $s\models\forall\Diamond a\vee \forall\Diamond b$.
+	\item If $s\models\forall(aUb)$, then $s\models\neg(\exists(\neg bU(\neg a\wedge\neg b))\vee\exists\Square\neg b)$.
+\end{itemize}
+
+\subsection*{Answer}
+\begin{itemize}
+	\item Incorrect: the first $\models$ allows paths that not always see a while the second one only contains such paths (so if $s \models expr_1$ then $s \not\models expr_2$).
+	\item Correct: $expr_1$ always sees a on all paths and $expr_2$ states that there are paths that always see a, so if $s\models expr_1$ it also holds that $s\models expr_2$.
+	\item Correct: both expressions have the same meaning.
+	\item Correct: both expressions have the same meaning.
+	\item Correct: both expressions have the same meaning.
+\end{itemize}
+
+\newpage
+\section*{Ex. 6.4}
+\subsection*{Question}
+Let $\phi$ and $\psi$ be arbitrary CTL formulae. Which of the following equivalences for CTL formulae are correct?
+\begin{center}
+	\includegraphics*[scale=0.8]{ex64.png}
+\end{center}
+\subsection*{Answer}
+\begin{itemize}
+	\item Correct
+	\item Correct
+	\item Incorrect
+	\item Correct
+	\item Incorrect
+	\item Incorrect
+	\item Incorrect
+	\item Correct
+	\item Incorrect
+	\item Incorrect
+	\item Correct
+	\item Incorrect
+	\item Correct
+	\item Incorrect
+	\item Correct
+\end{itemize}
+
+\newpage
+\section*{Ex. 6.7}
+\subsection*{Question}
+Transform the following CTL formulae into ENF and PNF. Show all intermediate
+steps.
+\begin{center}
+	\includegraphics*[scale=0.8]{ex67.png}
+\end{center}
+
+\subsection*{Answer}
+\begin{itemize}
+	\item ENF: $\neg\exists(((\neg a)\wedge\neg(b\implies\neg\exists\Circle\neg c)U(\neg(\neg a)\wedge\neg(b\implies\neg\exists\Circle\neg c))))$\\
+		PNF: allready in PNF
+	\item ENF: $\neg\exists\Circle\neg(\exists((\neg a)U(b\wedge\neg c))\vee\exists\Square\neg\exists\Circle\neg a$\\
+		PNF: allready in PNF
+\end{itemize}
+
+\newpage
+\section*{Ex. 6.8}
+\subsection*{Question}
+Provide two finite transition systems $TS_1$ and $TS_2$ (without terminal states, and over the same set of atomic propositions) and a CTL formula $\phi$ such that Traces($TS_1$) = Traces($TS_2$) and $TS_1 \models\phi$, but $TS_2 \not\models\phi$.
+
+\subsection*{Answer}
+\begin{center}
+	\includegraphics*[scale=0.8]{ex681.png}
+	\includegraphics*[scale=0.8]{ex682.png}
+\end{center}
+
+\section*{Ex. 6.9}
+\subsection*{Question}
+
+\subsection*{Answer}
+
+\section*{Ex. 6.13}
+\subsection*{Question}
+
+\subsection*{Answer}
+
+\newpage
+\section*{Ex. 6.14}
+\subsection*{Question}
+Check for each of the following formula pairs $(\phi_i, \varphi_i)$ whether the CTL formula $\phi_i$ is equivalent to the LTL formula $\varphi_i$. Prove the equivalence or provide a counterexample that illustrates why $\phi_i \not\equiv \varphi_i$.
+\begin{center}
+	\includegraphics*[scale=0.8]{ex614.png}
+\end{center}
+
+\subsection*{Answer}
+\begin{itemize}
+	\item Equivalent (absorption law)
+	\item Equivalent (absortpion law)
+	\item Equivalent: the $\forall$ in $\phi$ can be dropped (because of the $\Diamond$) which leaves $\Diamond(a\wedge\exists\Circle a) \equiv \Diamond(a\wedge\Circle a)$. Both expressions state there needs to be a path that has $a$ followed by another $a$.
+	\item Equivalent: stating that for all paths you will eventually see a or eventually see b is the same as stating that eventually you will see a or b.
+	\item Equivalent: $\phi_5$ states that for all paths it always holds that seeing an a implies that you will always eventually see a b. This is the same meaning $\varphi_5$ has in LTL.
+	\item Not equivalent: $\phi_6$ only contains paths $bbbbb.....abbbbbbbbb....$ where $\varphi_6$ also satisfies $\neg b\neg b ... \neg babbbbbbb.....$.
+\end{itemize}
+
+
+\section{Appendix}
+\subsection{PRISM code (ex 6.2)}
+\begin{lstlisting}[language=PRISM]
+dtmc
+
+module ex2
+// local state
+s : [0..4];
+a : bool;
+b : bool;
+
+[] s=0 -> (s'=1) & (a'=true);
+[] s=0 -> (s'=4) & (b'=true);
+[] s=1 -> (s'=2) & (a'=true);
+[] s=1 -> (s'=2) & (b'=true);
+[] s=2 -> (s'=3) & (b'=true) & (a'=false);
+[] s=3 -> (s'=3) & (b'=true);
+[] s=3 -> (s'=0) & (b'=false);
+[] s=4 -> (s'=4) & (b'=true);
+
+endmodule
+
+init
+(s=0 | s=3) & a=false & b=false
+endinit
+\end{lstlisting}
+
+\subsection{PRISM properties (ex 6.2)}
+\begin{lstlisting}[language=PRISM]
+(A[(a=true)U(b=true)]) | (E[X(A[G(b=true)])])
+
+A[G(A[(a=true)U(b=true)])]
+
+((a=true) & (b=true)) => E[G(E[X(A[(b=true)W(a=true)])])]
+
+A[G(E[F(((a=true) & (b=true)) => E[G(E[X(A[(b=true)W(a=true)])])])])]
+
+\end{lstlisting}
+
+
+
+\end{document}
