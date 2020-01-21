@@ -24,6 +24,33 @@ class ParityNode:
     def get_priority(self):
         return self.priority
 
+    def get_dot_format(self):
+        label = "\""
+        if self.owner == 0:
+            if self.name is None:
+                label += "{0} with priority {1}".format(self.id, self.priority)
+                label += "\""
+                return "{0} [shape=circle, label={1}]\n".format(self.id, label)
+            else:
+                label += "{0} with priority {1}".format(self.name.strip('"'), self.priority)
+                label += "\""
+                return "{0} [shape=circle, label={1}]\n".format(self.name, label)
+        elif self.owner == 1:
+            if self.name is None:
+                label += "{0} with priority {1}".format(self.id, self.priority)
+                label += "\""
+                return "{0} [shape=diamond, label={1}]\n".format(self.id, label)
+            else:
+                label += "{0} with priority {1}".format(self.name.strip('"'), self.priority)
+                label += "\""
+                return "{0} [shape=diamond, label={1}]\n".format(self.name, label)
+
+    def get_dot_name(self):
+        if self.name is None:
+            return self.id
+        else:
+            return self.name
+
 
 class ParityGame:
     def __init__(self):
@@ -180,27 +207,60 @@ class ParityGame:
         for y in Y:
             print("\t\t {0}".format(str(y)))
 
+    def toDot(self, name):
+        file = open(name, "wr")
+        file.truncate(0)
+        file.write("digraph {\n//graph [rankdir=LR]\n")
+        for node in self.V:
+            file.write(node.get_dot_format())
+        for edge in self.E:
+            n0 = self.get_node(edge[0])
+            n1 = self.get_node(edge[1])
+            file.write("{0} -> {1};\n".format(n0.get_dot_name(), n1.get_dot_name()))
+        file.write("}")
+        file.close()
+
 
 def main(PGFile):
     game = ParityGame()
     f= open(PGFile)
     lines = f.readlines()
+    parity = -1
+    print(len(lines))
     if len(lines[0].split(' ')) == 2:
-        print("Optional header found:", lines[0])
-    for i in range(1, len(lines)):
-        parts = lines[i].split(' ')
-        id = int(parts[0])
-        priority = int(parts[1])
-        owner = int(parts[2])
-        successors = []
-        s = parts[3].split(',')
-        for succ in s:
-            successors.append(int(succ))
-        if len(parts) == 5:
-            game.add_node(id, priority, owner, successors, parts[4])
-        else:
-            game.add_node(id, priority, owner, successors)
-    game.add_edges()
+        parity = int(lines[0].split(' ')[1].split(';')[0])
+        print("Optional header found: parity = {0}".format(parity))
+    if parity != -1 and parity == len(lines)-2:
+        for i in range(1, len(lines)):
+            parts = lines[i].split(' ')
+            id = int(parts[0])
+            priority = int(parts[1])
+            owner = int(parts[2])
+            successors = []
+            s = parts[3].split(',')
+            for succ in s:
+                successors.append(int(succ))
+            if len(parts) == 5:
+                game.add_node(id, priority, owner, successors, parts[4].strip(';\n'))
+            else:
+                game.add_node(id, priority, owner, successors)
+        game.add_edges()
+    elif parity == -1:
+        for i in range(0, len(lines)):
+            parts = lines[i].split(' ')
+            id = int(parts[0])
+            priority = int(parts[1])
+            owner = int(parts[2])
+            successors = []
+            s = parts[3].split(',')
+            for succ in s:
+                successors.append(int(succ.strip(';\n')))
+            if len(parts) == 5:
+                game.add_node(id, priority, owner, successors, parts[4].strip(';\n'))
+            else:
+                game.add_node(id, priority, owner, successors)
+        game.add_edges()
+    game.toDot("{0}.dot".format(PGFile.split('.')[0]))
     result = game.zielonka(0)
     game.print_game_result(result, 0)
     result = game.zielonka(1)

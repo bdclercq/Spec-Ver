@@ -1,0 +1,20 @@
+digraph {
+graph [rankdir=LR]
+0 [shape=diamond, label="0 with priority 6"]
+4 [shape=diamond, label="4 with priority 5"]
+1 [shape=diamond, label="1 with priority 8"]
+3 [shape=circle, label="3 with priority 6"]
+2 [shape=circle, label="2 with priority 7"]
+0 -> 4;
+0 -> 2;
+4 -> 0;
+1 -> 2;
+1 -> 4;
+1 -> 3;
+3 -> 4;
+3 -> 2;
+2 -> 3;
+2 -> 1;
+2 -> 0;
+2 -> 4;
+}
