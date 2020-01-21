@@ -1,0 +1,36 @@
+digraph {
+//graph [rankdir=LR]
+"v0" [shape=circle, label="v0 with priority 0"]
+"v1" [shape=diamond, label="v1 with priority 1"]
+"v2" [shape=diamond, label="v2 with priority 2"]
+"v3" [shape=circle, label="v3 with priority 3"]
+"v4" [shape=diamond, label="v4 with priority 1"]
+"v5" [shape=diamond, label="v5 with priority 2"]
+"v6" [shape=diamond, label="v6 with priority 3"]
+"v7" [shape=diamond, label="v7 with priority 4"]
+"v8" [shape=circle, label="v8 with priority 1"]
+"v9" [shape=circle, label="v9 with priority 2"]
+"v10" [shape=circle, label="v10 with priority 3"]
+"v11" [shape=circle, label="v11 with priority 4"]
+"v0" -> "v1";
+"v1" -> "v0";
+"v1" -> "v8";
+"v2" -> "v9";
+"v2" -> "v10";
+"v3" -> "v2";
+"v3" -> "v5";
+"v4" -> "v5";
+"v4" -> "v8";
+"v5" -> "v3";
+"v5" -> "v9";
+"v6" -> "v3";
+"v6" -> "v10";
+"v6" -> "v11";
+"v7" -> "v11";
+"v8" -> "v4";
+"v8" -> "v10";
+"v9" -> "v6";
+"v10" -> "v6";
+"v10" -> "v7";
+"v11" -> "v7";
+}

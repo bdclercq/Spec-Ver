@@ -1,0 +1,103 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % This lets you include figures
+\usepackage{hyperref} % This lets you make links to web locations
+\graphicspath{ {./images/} }
+
+\usepackage[rightcaption]{sidecap}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+
+\usepackage{float}
+
+\usepackage{imakeidx}
+
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{wasysym}
+
+\usepackage{color,soul}
+\usepackage{listings}
+
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{PRISM}{
+	keywords={module, init, endinit, endmodule, dtmc},
+	keywordstyle=\color{purple}\bfseries,
+	ndkeywords={bool},
+	ndkeywordstyle=\color{darkgray}\bfseries,
+	identifierstyle=\color{red},
+	sensitive=false,
+	comment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{purple}\ttfamily
+}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\makeindex
+
+
+\title{Parity Games}
+\author{Beau De Clercq}
+
+\begin{document}
+\maketitle{}
+
+%\tableofcontents
+
+\clearpage
+\newpage
+
+\begin{abstract}
+	In this report we will briefly discuss how it is possible to implement an easy way to solve parity games. Firstly we will describe the models that were used in this implementation, followed by a brief description of how the algorithm itself solves our game. We conclude with some examples input and output.
+\end{abstract}
+
+\section{The application}
+\subsection{Models}
+In this implementation two models were used: a \textbf{ParityNode} class and a \textbf{ParityGame} class. \\
+As the name suggests, a \textbf{ParityNode} object is used to store all information pertaining to the node as described in the input file. Such an object thus has an ID, priority, owner, a list of all successors and optionally a name.\\ 
+An instance of the \textbf{ParityGame} class is used to store all nodes and edges who together form a single game. It consists of a list containing all nodes \textit{$V$}, two lists \textit{$V_0$} and \textit{$V_1$} consisting of all nodes belonging to $player_0$ or $player_1$ respectively, a list of edges \textit{E} and a priority mapping $\Omega$.\\
+
+\subsection{Algorithm}
+In our application we decided to implement the algorithm by Zielonka as described in \cite[~p28]{zielonka}.
+
+\section{Appendix}
+\subsection{PRISM code (ex 6.2)}
+\begin{lstlisting}[language=PRISM]
+dtmc
+
+module ex2
+// local state
+s : [0..4];
+a : bool;
+b : bool;
+
+[] s=0 -> (s'=1) & (a'=true);
+[] s=0 -> (s'=4) & (b'=true);
+[] s=1 -> (s'=2) & (a'=true);
+[] s=1 -> (s'=2) & (b'=true);
+[] s=2 -> (s'=3) & (b'=true) & (a'=false);
+[] s=3 -> (s'=3) & (b'=true);
+[] s=3 -> (s'=0) & (b'=false);
+[] s=4 -> (s'=4) & (b'=true);
+
+endmodule
+
+init
+(s=0 | s=3) & a=false & b=false
+endinit
+\end{lstlisting}
+
+
+
+\begin{thebibliography}{9}
+	
+	\bibitem{zielonka}
+	Guillerma A. Pérez,
+	\textit{PLAYING GAMES TO SYNTHESIZE REACTIVE SYSTEMS}
+	
+\end{thebibliography}
+
+\end{document}
