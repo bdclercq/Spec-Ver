@@ -1,0 +1,20 @@
+digraph {
+//graph [rankdir=LR]
+"Africa" [shape=diamond, label="Africa with priority 6"]
+"Antarctica" [shape=diamond, label="Antarctica with priority 5"]
+"America" [shape=diamond, label="America with priority 8"]
+"Australia" [shape=circle, label="Australia with priority 6"]
+"Asia" [shape=circle, label="Asia with priority 7"]
+"Africa" -> "Antarctica";
+"Africa" -> "Asia";
+"Antarctica" -> "Africa";
+"America" -> "Asia";
+"America" -> "Antarctica";
+"America" -> "Australia";
+"Australia" -> "Antarctica";
+"Australia" -> "Asia";
+"Asia" -> "Australia";
+"Asia" -> "America";
+"Asia" -> "Africa";
+"Asia" -> "Antarctica";
+}
