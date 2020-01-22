@@ -180,47 +180,42 @@ class ParityGame:
             for node in nodes1:
                 if node not in attrs:
                     attrs.append(node)
-            print("attr[")
-            for a in attrs:
-                print(a)
-            print("]")
+            # print("attr[")
+            # for a in attrs:
+            #     print(a)
+            # print("]")
             return attrs
 
     def remove_nodes(self, nodes):
-        print("Removing nodes")
-        for n in nodes:
-            print(n)
+        #remove edges
+        for e in self.E:
+            if self.get_node(e[0]) in nodes or self.get_node(e[1]) in nodes:
+                self.E.remove(e)
+        #remove nodes
         self.V = [node for node in self.V if node not in nodes]
+        self.V0 = [node for node in self.V0 if node not in nodes]
+        self.V1 = [node for node in self.V1 if node not in nodes]
 
     def zielonka(self):
         if len(self.V) == 0:
             return [], []
         else:
-            m = self.min_priority()
-            M = self.get_nodes_min_priority()
-            print("m: {0}, M: {1}".format(m, M))
+            m = self.min_priority()             # Retrieve lowest priority
+            M = self.get_nodes_min_priority()   # Get all nodes with lowest priority
             i = m%2
-            print("i: ", i)
             R = self.attr(i, len(self.V), M)
-            print("R: ", R)
-            self.remove_nodes(R)
-            Wi, Wj = self.zielonka()
-            print("Wi, Wj: ", str(Wi), Wj)
-            if len(Wj) == 0:
-                print("if")
-                Wk = Wi+R
-                Wl = []
+            self.remove_nodes(R)                # Remove all nodes and related edges from the game
+            Wi, Wj = self.zielonka()            # Make a recursive call, W_i' == Wi, W_(i-1)' == Wj
+            if len(Wj) == 0:                    # If set is empty
+                Wk = Wi+R                       # W_i == Wk
+                Wl = []                         # W_(i-1) == Wl
             else:
-                print("else")
-                print("i-1: ", i-1)
-                print("Wj: ", Wj)
                 S = self.attr(i-1, len(self.V), Wj)
-                print("S: ", S)
-                self.remove_nodes(S)
-                Wm, Wn = self.zielonka()
-                Wk = Wm
-                Wl = Wn+S
-            return Wk, Wl
+                self.remove_nodes(S)            # Remove all nodes and related edges from the game
+                Wm, Wn = self.zielonka()        # Make recursive call, W_i'' == Wm, W_(i-1)'' == Wn
+                Wk = Wm                         # W_i == Wk
+                Wl = Wn+S                       # W_(i-1) == Wl
+            return Wk, Wl                       # return W_i, W_(i-1)
 
     def zielonka2(self):
         if len(self.V) == 0:
@@ -228,26 +223,26 @@ class ParityGame:
         else:
             m = self.max_priority()
             M = self.get_nodes_max_priority()
-            print("m: {0}, M: {1}".format(m, M))
+            #print("m: {0}, M: {1}".format(m, M))
             i = m%2
-            print("i: ", i)
+            #print("i: ", i)
             R = self.attr(i, len(self.V), M)
-            print("R: ", R)
+            #print("R: ", R)
             self.remove_nodes(R)
-            Wi, Wj = self.zielonka()
-            print("Wi, Wj: ", str(Wi), Wj)
+            Wi, Wj = self.zielonka2()
+            #print("Wi, Wj: ", str(Wi), Wj)
             if len(Wj) == 0:
-                print("if")
+                #print("if")
                 Wk = Wi+R
                 Wl = []
             else:
-                print("else")
-                print("i-1: ", i-1)
-                print("Wj: ", Wj)
+                #print("else")
+                #print("i-1: ", i-1)
+                #print("Wj: ", Wj)
                 S = self.attr(i-1, len(self.V), Wj)
-                print("S: ", S)
+                #print("S: ", S)
                 self.remove_nodes(S)
-                Wm, Wn = self.zielonka()
+                Wm, Wn = self.zielonka2()
                 Wk = Wm
                 Wl = Wn+S
             return Wk, Wl
@@ -264,7 +259,7 @@ class ParityGame:
             print("\t\t {0}".format(str(y)))
 
     def toDot(self, name):
-        file = open(name, "wr")
+        file = open(name, "w+")
         file.truncate(0)
         file.write("digraph {\n//graph [rankdir=LR]\n")
         for node in self.V:
@@ -282,7 +277,7 @@ def main(PGFile):
     f= open(PGFile)
     lines = f.readlines()
     parity = -1
-    print(len(lines))
+    #print(len(lines))
     if len(lines[0].split(' ')) == 2:
         parity = int(lines[0].split(' ')[1].split(';')[0])
         print("Optional header found: parity = {0}".format(parity))
