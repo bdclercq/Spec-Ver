@@ -1,5 +1,5 @@
 digraph {
-graph [rankdir=LR]
+//graph [rankdir=LR]
 0 [shape=diamond, label="0 with priority 6"]
 4 [shape=diamond, label="4 with priority 5"]
 1 [shape=diamond, label="1 with priority 8"]

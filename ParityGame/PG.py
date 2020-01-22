@@ -286,7 +286,7 @@ def main(PGFile):
     if len(lines[0].split(' ')) == 2:
         parity = int(lines[0].split(' ')[1].split(';')[0])
         print("Optional header found: parity = {0}".format(parity))
-    if parity != -1 and parity == len(lines)-2:
+    if parity != -1:
         for i in range(1, len(lines)):
             parts = lines[i].split(' ')
             id = int(parts[0])
@@ -295,7 +295,7 @@ def main(PGFile):
             successors = []
             s = parts[3].split(',')
             for succ in s:
-                successors.append(int(succ))
+                successors.append(int(succ.strip(';\n')))
             if len(parts) == 5:
                 game.add_node(id, priority, owner, successors, parts[4].strip(';\n'))
             else:
