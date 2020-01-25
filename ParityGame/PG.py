@@ -1,5 +1,4 @@
 import sys
-import copy
 
 
 class ParityNode:
@@ -233,15 +232,20 @@ class ParityGame:
             return Wk, Wl                       # return W_i, W_(i-1)
 
     def print_game_result(self, result):
-        print("Solution for game:\n")
-        print("\t Wk:\n")
-        X = result[0]
-        for x in X:
-            print("\t\t {0}".format(str(x)))
-        print("\t Wl:\n")
-        Y = result[1]
-        for y in Y:
-            print("\t\t {0}".format(str(y)))
+        if len(result[0]) > 0:
+            print("Eve can win")
+        else:
+            print("Eve cannot win")
+        return
+        # print("Solution for game:\n")
+        # print("\t Wk:\n")
+        # X = result[0]
+        # for x in X:
+        #     print("\t\t {0}".format(str(x)))
+        # print("\t Wl:\n")
+        # Y = result[1]
+        # for y in Y:
+        #     print("\t\t {0}".format(str(y)))
 
     def toDot(self, name):
         file = open(name, "w+")
