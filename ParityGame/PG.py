@@ -281,6 +281,9 @@ def main(PGFile):
         parity = int(lines[0].split(' ')[1].split(';')[0])
         print("Optional header found: parity = {0}".format(parity))
     if parity != -1:
+        if len(lines) > parity+2:
+            print("Problem reading file, is the parity in the header correct?")
+            return
         for i in range(1, len(lines)):
             parts = lines[i].split(' ')
             id = int(parts[0])
