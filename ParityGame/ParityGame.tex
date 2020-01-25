@@ -73,6 +73,7 @@ The application can be run in 2 ways:
 	\item By running the \texttt{$run_tests$} script in the main directory;
 	\item By running \texttt{$python PG.py \{gamefile\}$} where $gamefile$ describes a parity game according to the notation described in \cite[~p32]{format}.
 \end{itemize}
+Running the application will output whether Eve (a.k.a. player 0) is able to win the game as well as generating an image of what the game looks like. The visualization requires that \texttt{graphviz} and \texttt{dot} are installed and can be found in the terminal.
 \newpage
 
 \section{Appendix}
@@ -388,15 +389,11 @@ class ParityGame:
 			return Wk, Wl                       # return W_i, W_(i-1)
 
 	def print_game_result(self, result):
-		print("Solution for game:\n")
-		print("\t Wk:\n")
-		X = result[0]
-		for x in X:
-			print("\t\t {0}".format(str(x)))
-		print("\t Wl:\n")
-		Y = result[1]
-		for y in Y:
-			print("\t\t {0}".format(str(y)))
+		if len(result[0]) > 0:
+			print("Eve can win")
+		else:
+			print("Eve cannot win")
+		return
 	
 	def toDot(self, name):
 		file = open(name, "w+")
