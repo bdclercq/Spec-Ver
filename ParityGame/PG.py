@@ -1,4 +1,5 @@
 import sys
+import copy
 
 
 class ParityNode:
@@ -148,43 +149,55 @@ class ParityGame:
         if k == 0:
             return T
         else:
-            attrk = self.attr(i, k - 1, T)
+            attrk = self.attr(i, k - 1, T)  # Attr_i^(k-1)
             #print("attrk: ", attrk)
             attrk_ids = [node.get_id() for node in attrk]
-            edges0 = self.get_edges_v0()
-            edges1 = self.get_edges_v1()
+            V0 = [node.get_id() for node in self.V0]
+            V1 = [node.get_id() for node in self.V1]
+            edges = self.E
+            edges_map = to_map(self.E)
             nodes0 = []
             nodes1 = []
+
             if i == 0:
                 # Follow procedure for player 0
-                edges11 = [e[1] for e in edges1]    # list with all v's vor V1
-                for e in edges0:
-                    if e[1] in attrk_ids and self.get_node(e[0]) is not None:
+                # if there is an edge (u, v) with u in V_E where v is in attrk, add u to the list
+                for e in edges:
+                    if e[1] in attrk_ids and e[1] in V0:
                         nodes0.append(self.get_node(e[0]))
-                if edges11 in attrk_ids:
-                    for e in edges1:
-                        nodes1.append(self.get_node(e[0]))
+                # if for all edges (u, v) in V\V_E there is an edge with v in attrk, add u to the list
+                for e in edges_map:
+                    if e in attrk_ids:
+                        for node in edges_map[e]:
+                            if node in V1:
+                                nodes0.append(self.get_node(node))
+                attrs = attrk[:]
+                for node in nodes0:
+                    if node not in attrs:
+                        attrs.append(node)
+                return attrs
+
             elif i == 1:
                 # Follow procedure for player 1
-                edges01 = [e[1] for e in edges0]    # list with all v's vor V0
-                for e in edges1:
-                    if e[1] in attrk_ids and self.get_node(e[0]) is not None:
+                # if there is an edge (u, v) with u in V\V_E where v is in attrk, add u to the list
+                for e in edges:
+                    if e[1] in attrk_ids and e[1] in V1:
                         nodes1.append(self.get_node(e[0]))
-                if edges01 in attrk_ids:
-                    for e in edges0:
-                        nodes0.append(self.get_node(e[0]))
-            attrs = attrk
-            for node in nodes0:
-                if node not in attrs:
-                    attrs.append(node)
-            for node in nodes1:
-                if node not in attrs:
-                    attrs.append(node)
-            # print("attr[")
-            # for a in attrs:
-            #     print(a)
-            # print("]")
-            return attrs
+                # if for all edges (u, v) in V_E there is an edge with v in attrk, add u to the list
+                for e in edges_map:
+                    if e in attrk_ids:
+                        for node in edges_map[e]:
+                            if node in V0:
+                                nodes1.append(self.get_node(node))
+                attrs = attrk[:]
+                for node in nodes1:
+                    if node not in attrs:
+                        attrs.append(node)
+                # print("attr[")
+                # for a in attrs:
+                #     print(a)
+                # print("]")
+                return attrs
 
     def remove_nodes(self, nodes):
         #remove edges
@@ -200,55 +213,27 @@ class ParityGame:
         if len(self.V) == 0:
             return [], []
         else:
+            k = len(self.V)
             m = self.min_priority()             # Retrieve lowest priority
             M = self.get_nodes_min_priority()   # Get all nodes with lowest priority
             i = m%2
-            R = self.attr(i, len(self.V), M)
+            R = self.attr(i, k, M)
             self.remove_nodes(R)                # Remove all nodes and related edges from the game
+            print("--- RECURSIVE CALL ---")
             Wi, Wj = self.zielonka()            # Make a recursive call, W_i' == Wi, W_(i-1)' == Wj
             if len(Wj) == 0:                    # If set is empty
                 Wk = Wi+R                       # W_i == Wk
                 Wl = []                         # W_(i-1) == Wl
             else:
-                S = self.attr(i-1, len(self.V), Wj)
+                S = self.attr(i-1, k, Wj)
                 self.remove_nodes(S)            # Remove all nodes and related edges from the game
                 Wm, Wn = self.zielonka()        # Make recursive call, W_i'' == Wm, W_(i-1)'' == Wn
                 Wk = Wm                         # W_i == Wk
                 Wl = Wn+S                       # W_(i-1) == Wl
             return Wk, Wl                       # return W_i, W_(i-1)
 
-    def zielonka2(self):
-        if len(self.V) == 0:
-            return [], []
-        else:
-            m = self.max_priority()
-            M = self.get_nodes_max_priority()
-            #print("m: {0}, M: {1}".format(m, M))
-            i = m%2
-            #print("i: ", i)
-            R = self.attr(i, len(self.V), M)
-            #print("R: ", R)
-            self.remove_nodes(R)
-            Wi, Wj = self.zielonka2()
-            #print("Wi, Wj: ", str(Wi), Wj)
-            if len(Wj) == 0:
-                #print("if")
-                Wk = Wi+R
-                Wl = []
-            else:
-                #print("else")
-                #print("i-1: ", i-1)
-                #print("Wj: ", Wj)
-                S = self.attr(i-1, len(self.V), Wj)
-                #print("S: ", S)
-                self.remove_nodes(S)
-                Wm, Wn = self.zielonka2()
-                Wk = Wm
-                Wl = Wn+S
-            return Wk, Wl
-
-    def print_game_result(self, result, p):
-        print("Solution for parity {0}:\n".format(p))
+    def print_game_result(self, result):
+        print("Solution for game:\n")
         print("\t Wk:\n")
         X = result[0]
         for x in X:
@@ -271,6 +256,16 @@ class ParityGame:
         file.write("}")
         file.close()
 
+
+def to_map(edges):
+    ''' Transform edges (u, v) from pairs to a map with key v '''
+    map = {}
+    for e in edges:
+        if e[1] not in map.keys():
+            map[e[1]] = [e[0]]
+        else:
+            map[e[1]].append(e[0])
+    return map
 
 def main(PGFile):
     game = ParityGame()
@@ -313,7 +308,7 @@ def main(PGFile):
         game.add_edges()
     game.toDot("{0}.dot".format(PGFile.split('.')[0]))
     result = game.zielonka()
-    game.print_game_result(result, 0)
+    game.print_game_result(result)
 
 
 if __name__== "__main__":

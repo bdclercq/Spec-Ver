@@ -1,0 +1,5 @@
+digraph {
+//graph [rankdir=LR]
+"v0" [shape=diamond, label="v0 with priority 0"]
+"v0" -> "v0";
+}
