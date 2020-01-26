@@ -1,0 +1,58 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % This lets you include figures
+\usepackage{hyperref} % This lets you make links to web locations
+\graphicspath{ {./images/} }
+
+\usepackage[rightcaption]{sidecap}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+
+\usepackage{float}
+
+\usepackage{imakeidx}
+
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{wasysym}
+
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+
+\begin{document}
+\scriptsize\noindent
+\begin{center}
+	Cheat sheet Specification and verification\\
+	Beau De Clercq
+\end{center}
+\textbf{lecture 2}\\
+Reach(T) = \{s$\in S | \exists s_0 \in I\wedge s_0\rightarrow...\rightarrow s_n = s$\} = Post$^*$(I)\\
+program graph: digraph with conditions on the edges, PG=(Locations, Actions, Effect, transition relation, Initial locations, initial \\\textbf{lecture 3}\\
+safety (something bad never happens): $\neg$F(formula), liveness (something good will happen): GF(...), persistence (ensure property holds forever): FG(...), unconditional fairness: for all i $\wedge_i$ GF(...), strong fairness: for all i $\wedge_i$ GF(...) $\rightarrow$ GF(...), weak fairness: for all i $\wedge_i$ FG(...) $\rightarrow$ GF(...)\\
+temporal operators: \Circle, U, G, F\\
+derived operators: F$\phi$ = TU$\phi$, G$\phi$ = $\neg$F$\neg$$\phi$, $\phi$W$\psi$ = ($\phi$U$\psi$)$\vee$G$\phi$, $\phi$R$\psi$ = $\neg$($\neg$$\phi$U$\neg$$\psi$)\\
+Words($\phi$) = \{w=$a_0a_1a_2...\in (2^p)^\omega | w \models \phi$\}, $\pi$$\in$Paths(T): $\pi$$\neg\models\phi$ $\leftrightarrow$$\pi\models\neg$$\phi$, TS T $\neg\models\phi$ $\leftarrow$ T $\models\neg$$\phi$ (Traces(T) $\in$Words($\neg$$\phi$))
+\\\textbf{lecture 4}\\
+NFA NBA concatenation: I = $I^1$ if $I^1\cap F^1$ is empty, $I^1\cup I^2$ otherwise; transition: (q, A) = $\delta^1$(q, A) if q$\in$$Q^1$ and $\delta^1$(q, A)$\cap$$F^1$ is empty;  $\delta^1$(q, A)$\cup$$I^2$ if q$\in$$Q^1$ and $\delta^1$(q, A)$\cap$$F^1$ is not empty; $\delta^2$(q, A) if q$\in$$Q^2$\\
+$\omega$-operator for NFA: add transitions from $q_{new}$ to all states directly reachable by $q_0$; for all states in F, if $\delta$(q, $q_f$, $\alpha$) then add $\delta$(q, $q_{new}$, $\alpha$); the new set $I' = F' = I$; remove useless states\\
+L(NBA) $\neq \phi$ iff there is an accepting state on a reachable cycle\\
+Accepting run for NBA: sequence of states such that $q_i \in F$ for infinitely many indices i, L(NBA) = \{all words for which there is an accepting run\}
+\\\textbf{lecture 5}\\
+Closure($\phi$) = set of all sub-formulas and their negation; a set of sub-formulas B $\in$ Closure is elementary if B is logically and locally consistent as well as maximal; states for a GNBA for LTL are all elementary sets, if $\phi$ is in B B is initial, the initial sets are those with an Until or the second part of an Until\\
+Persistence checking: compute reachable SCCs and check if one contains a state satisfying $\neg$$\phi$ OR construct T and $A_{\neg\phi}$ in parallel and simultaneously construct the reachable fragment of the product via nested DFS\\
+\textbf{lecture 6}\\
+State formula: $\Phi$ = $T|a|\Phi\wedge\Psi|\neg\Phi|\exists\phi|\forall\phi$; path formula: $\phi$ = $\Circle\Phi|\Phi$U$\Psi$\\
+CTL derived operators: $\exists\Diamond\phi = \exists(TU\phi)$, $\forall\Diamond\phi = \forall(TU\phi)$, $\exists\Square\phi = \neg\forall\Diamond\neg\phi$, $\forall\Square\phi = \neg\exists\Diamond\neg\phi$\\
+$Sat_T(\Phi) = {s\in S|s \models \Phi}$; $s \in S\neg\models\Phi \leftrightarrow s\models\neg\Phi$, TS T $\neg\models\Phi$ $\leftarrow$ T $\models\neg$$\Phi$ \\
+\textbf{lecture 7}\\
+define boolean function with truth table, can only use $\wedge, \vee, \neg$, negating BDD: replace 0 and 1 constant value leaves, from decision tree to BDD: merge/remove useless subtrees, merge equivalent nodes\\
+\textbf{lecture 8}\\
+Symbolic model checking via BDDs: encode states as bitvectors, represent transitions as boolean functions (==switching functions) = characteristic function $\chi_R(s)$ = 1 if $s \in R$ and 0 otherwise, represent labeling via $\chi_{Sat(s)}$; at the end of the model checking process check that $\neg\chi_I\vee f_{Sat(\Phi)} = 1$\\
+\textbf{lecture 10}\\
+Given a circuit with automaton A, check if there exists a function $\mu$ such that the language of Ax$\mu$ is empty\\
+AIGER: aag M I L O A; every variable and AND-gate is represented by an even index i $\geq$2, negations by i+1; i $\leq$2M+1 for every index i\\
+Games played on automata: states Q just keep track of latch values, $\Sigma$ corresponds to valuations of the inputs, $\delta$ respects the latch next-step functions\\
+LTL to games: construct NBA for $\phi$, determinize it to a DPA and attempt to synthesize a strategy for player in the parity game
+
+\end{document}
